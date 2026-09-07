@@ -1,0 +1,30 @@
+{
+  "phase": "PHASE-5",
+  "passed": true,
+  "checks": {
+    "pack_mass_400kg": true,
+    "material_balances": true,
+    "collection_physical": true,
+    "technical_recovery_physical": true,
+    "critical_recovery_physical": true,
+    "recovered_mass_positive": true,
+    "comparative_impact_labeled": true
+  },
+  "metrics": {
+    "material_productivity": 0.9549999999999998,
+    "manufacturing_scrap_rate": 0.045000000000000054,
+    "collection_efficiency": 0.8705540166204986,
+    "technical_recovery_rate": 0.6491481970945223,
+    "circular_pathway_rate": 0.7230298058196553,
+    "landfill_or_loss_rate": 0.27697019418034485,
+    "critical_material_recovery_rate": 0.612692189466214,
+    "evidence_class": "CALCULATED FROM SYNTHETIC LIFECYCLE STATE"
+  },
+  "modeled_economics": {
+    "recovered_mass_kg": 816031.2156035819,
+    "modeled_material_cost_avoidance": 1605973.511791111,
+    "modeled_gwp_avoidance_kgco2e": 2792635.5689423736,
+    "evidence_class": "MODELED COMPARATIVE IMPACT; NOT REALIZED BENEFIT"
+  },
+  "max_material_balance_error_kg": 2.9103830456733704e-11
+}

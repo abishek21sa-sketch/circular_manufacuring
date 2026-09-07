@@ -1,0 +1,5 @@
+name,kind,capacity_kg,fixed_cost,processing_cost_per_kg,processing_kgco2e_per_kg,x_km,y_km
+R-Chicago,recycle,420000,240000,2.35,2.1,45,10
+R-Ohio,recycle,360000,205000,2.25,2.0,545,-90
+M-Detroit,reman,190000,135000,1.45,1.45,395,55
+M-Indiana,reman,165000,145000,1.55,1.4,275,-145

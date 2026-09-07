@@ -1,0 +1,44 @@
+{
+  "name": "NMC-811-V1-REFERENCE",
+  "manufacturing_scrap_rate": 0.045,
+  "max_recycled_content": 0.6,
+  "remanufacture_material_retention": 0.93,
+  "evidence_class": "SYNTHETIC VALIDATION",
+  "lineage": {
+    "source_system": "reference-template",
+    "source_owner": "circular-engineering",
+    "facility_id": "synthetic-reference",
+    "as_of_utc": "2026-09-04T00:00:00+00:00",
+    "data_classification": "synthetic-validation"
+  },
+  "reverse_logistics": {
+    "collection_rate": 0.88,
+    "max_disposal_share": 0.2
+  },
+  "planning": {
+    "initial_finished_goods_packs": 110,
+    "initial_recovered_inventory_kg": 45000,
+    "safety_stock_fraction_next_period": 0.05,
+    "min_recycled_content": 0.15
+  },
+  "recovery_grades": {
+    "A": {
+      "second_life": 0.55,
+      "remanufacture": 0.3,
+      "recycle": 0.13,
+      "disposal": 0.02
+    },
+    "B": {
+      "second_life": 0.15,
+      "remanufacture": 0.35,
+      "recycle": 0.45,
+      "disposal": 0.05
+    },
+    "C": {
+      "second_life": 0.02,
+      "remanufacture": 0.08,
+      "recycle": 0.78,
+      "disposal": 0.12
+    }
+  }
+}

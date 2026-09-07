@@ -1,0 +1,177 @@
+{
+  "schema_version": "1.0",
+  "reviewed_at": "2026-09-06",
+  "scope": "Circular battery manufacturing, recovery, industrial engineering, AI/ML, lifecycle accounting, and optimization",
+  "decision": "Use permissioned public or customer data when it is fit for a specific variable and has documented lineage. Keep the deterministic 120,000-row synthetic benchmark as the canonical end-to-end regression and solver-stress dataset; sample public EPA sector/emissions context with replacement and apply bounded trend stress profiles without claiming plant calibration.",
+  "sources": [
+    {
+      "source_id": "epa_ghgrp_2023",
+      "channel": "public_government",
+      "status": "integrated_reference",
+      "url": "https://www.epa.gov/ghgreporting/data-sets",
+      "data_role": ["facility_context", "industry_classification", "reported_direct_emissions"],
+      "usable_for_current_benchmark": true,
+      "repository_artifacts": ["data/public/epa_ghgrp_2023_facilities.csv", "data/public/epa_ghgrp_2023_metadata.json"],
+      "limitation": "Facility-level environmental reporting does not provide plant schedules, recovery yields, inventory, quality, cost, or control-system telemetry."
+    },
+    {
+      "source_id": "epa_envirofacts_tri_frs",
+      "channel": "public_government",
+      "status": "candidate_context_only",
+      "url": "https://www.epa.gov/enviro/data-downloads",
+      "data_role": ["facility_registry", "chemical_management", "waste_and_release_context"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "Facility and TRI records can identify industrial context and reported chemical management, but do not expose production recipes, yields, internal quality, or complete material balances."
+    },
+    {
+      "source_id": "doe_battery_recycling_capacity_context",
+      "channel": "public_government",
+      "status": "candidate_context_only",
+      "url": "https://www.energy.gov/cmei/vehicles/articles/fotw-1350-july-8-2024-2023-united-states-had-battery-recycling-facilities",
+      "data_role": ["recycling_capacity_context", "industry_landscape"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "The public article supplies industry context, not facility-level process yields, route demand, costs, or time-series operating data."
+    },
+    {
+      "source_id": "iea_global_ev_outlook_2026",
+      "channel": "public_research",
+      "status": "candidate_context_only",
+      "url": "https://www.iea.org/reports/global-ev-outlook-2026/electric-vehicle-batteries",
+      "data_role": ["battery_deployment_trends", "recycling_feedstock_lag", "chemistry_mix_context", "manufacturing_capacity_context"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "The IEA outlook informs bounded scenario assumptions and trend direction; it is not plant-level demand, yield, cost, or return telemetry for this project."
+    },
+    {
+      "source_id": "epa_egrid_2023",
+      "channel": "public_government",
+      "status": "candidate_context_only",
+      "url": "https://www.epa.gov/egrid/detailed-data",
+      "data_role": ["grid_emissions_factors", "generation", "resource_mix"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "Useful for Scope 2 or scenario-factor calibration, but not a manufacturing-operations dataset; release/version and transformation lineage must be recorded before ingestion."
+    },
+    {
+      "source_id": "eia_state_energy_data",
+      "channel": "public_government",
+      "status": "candidate_context_only",
+      "url": "https://www.eia.gov/state/seds/",
+      "data_role": ["industrial_energy_prices", "state_energy_consumption"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "State-level aggregates can inform priors and sensitivity ranges but cannot stand in for a plant utility meter or tariff."
+    },
+    {
+      "source_id": "eia_manufacturing_energy_consumption_survey",
+      "channel": "public_government",
+      "status": "candidate_context_only",
+      "url": "https://www.eia.gov/consumption/manufacturing/",
+      "data_role": ["manufacturing_energy_intensity", "industrial_energy_prices", "regional_energy_context"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "MECS is an aggregate manufacturing survey; it can bound energy stress scenarios but cannot replace plant meters, tariffs, recipes, or process control data."
+    },
+    {
+      "source_id": "usgs_mineral_commodity_summaries",
+      "channel": "public_government",
+      "status": "candidate_context_only",
+      "url": "https://www.usgs.gov/centers/national-minerals-information-center/mineral-commodity-summaries",
+      "data_role": ["critical_mineral_supply", "national_production", "commodity_context"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "National mineral statistics support supply-risk context, not supplier-specific contracts, lead times, grades, or delivered prices."
+    },
+    {
+      "source_id": "argonne_greet_rd_battery",
+      "channel": "public_research",
+      "status": "candidate_context_only",
+      "url": "https://greet.anl.gov/greet_battcf",
+      "data_role": ["battery_lifecycle_factors", "energy_intensity", "carbon_footprint"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "Model factors require version, functional-unit, chemistry, and applicability review; they do not measure this project's plant or recycler."
+    },
+    {
+      "source_id": "nasa_battery_prognostics",
+      "channel": "public_research",
+      "status": "candidate_research_only",
+      "url": "https://data.nasa.gov/dataset/prognostics-in-battery-health-management",
+      "data_role": ["battery_degradation", "health_prediction", "remaining_useful_life"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "Research battery aging data can support an AI experiment but is not representative of this project's manufacturing scrap, field returns, or recycler process."
+    },
+    {
+      "source_id": "kaggle_ev_battery_qc_synthetic_defect",
+      "channel": "community_dataset",
+      "status": "discovery_only",
+      "url": "https://www.kaggle.com/datasets/kanchana1990/ev-battery-qc-synthetic-defect-dataset",
+      "data_role": ["quality_classification", "manufacturing_feature_exploration"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "The identified Kaggle dataset is explicitly synthetic and user-contributed. Kaggle license, provenance, version, and generated-data assumptions must be verified before any reuse; it cannot be treated as field evidence."
+    },
+    {
+      "source_id": "catena_x_battery_passport",
+      "channel": "industry_standard",
+      "status": "schema_only",
+      "url": "https://catenax-ev.github.io/docs/next/standards/CX-0160-BatteryPassport",
+      "data_role": ["battery_passport_schema", "material_lineage", "circularity_semantics"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "An open standard defines exchange semantics; it does not grant access to OEM, cell-maker, dismantler, or recycler records."
+    },
+    {
+      "source_id": "benchmark_minerals",
+      "channel": "commercial_provider",
+      "status": "requires_subscription",
+      "url": "https://www.benchmarkminerals.com/plans",
+      "data_role": ["battery_material_prices", "supply_chain_forecasts", "black_mass_market_context"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "Commercial subscription and redistribution terms apply; no account or licensed export is available in this project."
+    },
+    {
+      "source_id": "fastmarkets_battery_raw_materials",
+      "channel": "commercial_provider",
+      "status": "requires_subscription",
+      "url": "https://www.fastmarkets.com/products/",
+      "data_role": ["commodity_price_assessments", "battery_raw_material_forecasts"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "Commercial subscription and redistribution terms apply; no account or licensed export is available in this project."
+    },
+    {
+      "source_id": "public_company_filings",
+      "channel": "public_company_disclosure",
+      "status": "public_aggregate_only",
+      "url": "https://www.sec.gov/edgar/search/",
+      "data_role": ["capex_context", "reported_financials", "high_level_esg_context"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "Public filings are aggregated and backward-looking; they do not expose production-line telemetry, recipes, yields, or confidential supplier terms."
+    },
+    {
+      "source_id": "customer_plant_and_recycler_systems",
+      "channel": "private_restricted",
+      "status": "requires_contract",
+      "data_role": ["mes_erp", "bms_returns", "quality", "scrap", "recovery_yield", "inventory", "route_events", "benefit_measurement"],
+      "usable_for_current_benchmark": false,
+      "repository_artifacts": [],
+      "limitation": "Requires owner authorization, data-use agreement/NDA, security review, source lineage, and approved retention. It cannot be legitimately obtained or fabricated from this workstation."
+    }
+  ],
+  "fallback_policy": {
+    "canonical_dataset": "data/synthetic/enterprise_120k/",
+    "row_count": 120000,
+    "case_family_count": 12,
+    "trend_profile_count": 4,
+    "public_context_basis": "EPA GHGRP 2023 sector/emissions distribution sampled with replacement; source facility identities are not copied into synthetic records.",
+    "evidence_class": "SYNTHETIC VALIDATION",
+    "claim_boundary": "Synthetic records support software, AI/ML pipeline, IE/OR formulation, robustness, and solver validation only. They are not plant telemetry, measured emissions, commercial market truth, or realized-benefit evidence."
+  },
+  "github_disclosure": "Because the project owner does not currently have authorized access to restricted plant, recycler, OEM, commercial market, or licensed company datasets, those sources are not represented as if they were used. GitHub documentation must retain this limitation and must not claim field calibration or realized savings."
+}

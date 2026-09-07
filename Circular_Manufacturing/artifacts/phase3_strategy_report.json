@@ -1,0 +1,158 @@
+{
+  "phase": "PHASE-3",
+  "evidence_class": "SYNTHETIC VALIDATION",
+  "reference_solution": {
+    "status": "OPTIMAL",
+    "objective": 16851452.0,
+    "total_cost": 16851452.0,
+    "total_carbon_kgco2e": 19053560.0,
+    "virgin_kg": 1971360.0,
+    "recovered_use_kg": 908640.0,
+    "disposal_kg": 108400.0,
+    "recycle_open": 1,
+    "reman_open": 0,
+    "recycled_content_rate": 0.3155,
+    "max_constraint_violation": 0.0,
+    "solver": "scipy.optimize.milp",
+    "mip_gap": 0.0,
+    "runtime_seconds": null,
+    "period_rows": [
+      {
+        "period": 1,
+        "virgin_kg": 621360.0,
+        "recycle_feed_kg": 309600.0,
+        "reman_feed_kg": 0.0,
+        "closing_inventory_kg": 0.0,
+        "disposal_kg": 0.0,
+        "recovered_use_kg": 278640.0
+      },
+      {
+        "period": 2,
+        "virgin_kg": 645000.0,
+        "recycle_feed_kg": 350000.0,
+        "reman_feed_kg": 0.0,
+        "closing_inventory_kg": 0.0,
+        "disposal_kg": 19800.0,
+        "recovered_use_kg": 315000.0
+      },
+      {
+        "period": 3,
+        "virgin_kg": 705000.0,
+        "recycle_feed_kg": 350000.0,
+        "reman_feed_kg": -0.0,
+        "closing_inventory_kg": 0.0,
+        "disposal_kg": 88600.0,
+        "recovered_use_kg": 315000.0
+      }
+    ]
+  },
+  "facility_oracle": {
+    "objective": 16851452.0,
+    "recycle_open": 1,
+    "reman_open": 0
+  },
+  "frontier": [
+    {
+      "carbon_price": 0.35,
+      "status": "OPTIMAL",
+      "objective": 23520198.0,
+      "total_cost": 16851452.0,
+      "total_carbon_kgco2e": 19053560.0,
+      "virgin_kg": 1971360.0,
+      "recovered_use_kg": 908640.0,
+      "disposal_kg": 108400.0,
+      "recycle_open": 1,
+      "reman_open": 0,
+      "recycled_content_rate": 0.3155,
+      "max_constraint_violation": 0.0,
+      "solver": "scipy.optimize.milp",
+      "mip_gap": 0.0,
+      "runtime_seconds": null,
+      "period_rows": [
+        {
+          "period": 1,
+          "virgin_kg": 621360.0,
+          "recycle_feed_kg": 309600.0,
+          "reman_feed_kg": 0.0,
+          "closing_inventory_kg": 0.0,
+          "disposal_kg": 0.0,
+          "recovered_use_kg": 278640.0
+        },
+        {
+          "period": 2,
+          "virgin_kg": 645000.0,
+          "recycle_feed_kg": 350000.0,
+          "reman_feed_kg": 0.0,
+          "closing_inventory_kg": 0.0,
+          "disposal_kg": 19800.0,
+          "recovered_use_kg": 315000.0
+        },
+        {
+          "period": 3,
+          "virgin_kg": 705000.0,
+          "recycle_feed_kg": 350000.0,
+          "reman_feed_kg": 0.0,
+          "closing_inventory_kg": 0.0,
+          "disposal_kg": 88600.0,
+          "recovered_use_kg": 315000.0
+        }
+      ]
+    },
+    {
+      "carbon_price": 6.0,
+      "status": "OPTIMAL",
+      "objective": 127511310.4,
+      "total_cost": 17137878.400000002,
+      "total_carbon_kgco2e": 18395572.0,
+      "virgin_kg": 1882472.0,
+      "recovered_use_kg": 997528.0,
+      "disposal_kg": 0.0,
+      "recycle_open": 1,
+      "reman_open": 1,
+      "recycled_content_rate": 0.3463638888888889,
+      "max_constraint_violation": 0.0,
+      "solver": "scipy.optimize.milp",
+      "mip_gap": 0.0,
+      "runtime_seconds": null,
+      "period_rows": [
+        {
+          "period": 1,
+          "virgin_kg": 621360.0,
+          "recycle_feed_kg": 309600.0,
+          "reman_feed_kg": 0.0,
+          "closing_inventory_kg": 0.0,
+          "disposal_kg": 0.0,
+          "recovered_use_kg": 278640.0
+        },
+        {
+          "period": 2,
+          "virgin_kg": 628764.0,
+          "recycle_feed_kg": 350000.0,
+          "reman_feed_kg": 19800.0,
+          "closing_inventory_kg": 0.0,
+          "disposal_kg": 0.0,
+          "recovered_use_kg": 331236.0
+        },
+        {
+          "period": 3,
+          "virgin_kg": 632348.0,
+          "recycle_feed_kg": 350000.0,
+          "reman_feed_kg": 88600.0,
+          "closing_inventory_kg": 0.0,
+          "disposal_kg": 0.0,
+          "recovered_use_kg": 387652.0
+        }
+      ]
+    }
+  ],
+  "stochastic": {
+    "n": 100,
+    "seed": 20260816,
+    "evidence_class": "SYNTHETIC STOCHASTIC VALIDATION",
+    "expected_cost": 16956492.325831737,
+    "p90_cost": 18039821.12816123,
+    "expected_carbon_kgco2e": 18905098.416762255,
+    "expected_virgin_kg": 1951081.140129476,
+    "high_virgin_dependency_probability": 0.0
+  }
+}

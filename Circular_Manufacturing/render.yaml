@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: circular-material-studio
+    runtime: python
+    buildCommand: pip install ".[gurobi,postgres]"
+    startCommand: HOST=0.0.0.0 python scripts/run_workbench.py
+    healthCheckPath: /api/v1/health
+    autoDeployTrigger: checksPass
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.14.7
+      - key: CIRCULAR_DEPLOYMENT_MODE
+        value: production
+      - key: CIRCULAR_AUTH_MODE
+        value: bearer
+      - key: CIRCULAR_API_ROLE
+        value: operator
+      - key: CIRCULAR_API_TOKEN_SHA256
+        sync: false

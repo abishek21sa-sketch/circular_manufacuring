@@ -1,0 +1,6 @@
+{
+  "evidence_class": "SYNTHETIC VALIDATION",
+  "seed": 20260816,
+  "chemistry": "NMC-DEMO",
+  "notes": "Phase 1 deterministic engineering benchmark; not real-world performance."
+}

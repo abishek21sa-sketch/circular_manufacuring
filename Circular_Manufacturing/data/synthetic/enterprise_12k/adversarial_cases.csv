@@ -1,0 +1,7 @@
+case_id,case_type,field,raw_value,expected_validator_result
+NEG-001,missing_required_value,collection_rate,,FAIL
+NEG-002,fraction_out_of_range,recycle_yield,1.25,FAIL
+NEG-003,non_finite_numeric,demand_packs,NaN,FAIL
+NEG-004,duplicate_record_id,record_id,OBS-00001,FAIL
+NEG-005,service_capacity_violation,service_gap_packs,-50,FAIL
+NEG-006,invalid_facility_flag,facility_available,2,FAIL

@@ -1,0 +1,15 @@
+{
+  "phase": "PHASE-3",
+  "passed": true,
+  "checks": {
+    "optimal": true,
+    "constraint_audit": true,
+    "oracle_matches": true,
+    "frontier_has_tradeoff": true,
+    "stochastic_reproducible": true,
+    "synthetic_label": true
+  },
+  "solver": "scipy.optimize.milp",
+  "mip_gap": 0.0,
+  "max_constraint_violation": 0.0
+}

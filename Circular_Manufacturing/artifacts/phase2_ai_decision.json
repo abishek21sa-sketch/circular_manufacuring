@@ -1,0 +1,102 @@
+{
+  "evidence_class": "SYNTHETIC VALIDATION",
+  "predicted_state": {
+    "demand_packs": 2506.3066391005786,
+    "expected_returns_packs": 430.81432928358197,
+    "scrap_rate": 0.051889194102292584,
+    "second_life_share": 0.12728763355367306,
+    "remanufacture_share": 0.1762392058254082,
+    "recycling_share": 0.175779041534486,
+    "dispose_share": 0.5206941190864327
+  },
+  "engineering_consequence": {
+    "period": 1,
+    "production_packs": 2506.3066391005786,
+    "total_material_input_kg": 1057389.7580367778,
+    "product_material_kg": 1002522.6556402314,
+    "manufacturing_scrap_kg": 54867.1023965464,
+    "collected_return_material_kg": 148200.1292735522,
+    "uncollected_return_material_kg": 24125.602439880604,
+    "second_life_material_kg": 18864.043747578886,
+    "remanufacture_feed_kg": 26118.673086393665,
+    "recycling_feed_kg": 26050.476678991927,
+    "direct_disposal_kg": 77166.9357605877,
+    "recovered_material_kg": 23445.429011092736,
+    "recycling_loss_kg": 2605.047667899191,
+    "closing_recovered_inventory_kg": 0.0,
+    "virgin_requirement_kg": 924210.1242325923,
+    "recycled_content_rate": 0.07811547296916413,
+    "collection_efficiency": 0.86,
+    "recovery_efficiency": 0.4617279767601187,
+    "landfill_diversion_rate": 0.39708606001370206,
+    "material_productivity_packs_per_tonne": 2.3702770147442687,
+    "manufacturing_balance_error_kg": 0.0,
+    "return_balance_error_kg": 2.9103830456733704e-11,
+    "recycling_balance_error_kg": 0.0,
+    "inventory_balance_error_kg": 0.0
+  },
+  "model_evidence": {
+    "demand": {
+      "task": "monthly battery demand forecasting",
+      "model_name": "Ridge regression with exogenous drivers",
+      "baseline_name": "12-month seasonal naive",
+      "metrics": {
+        "mae": 126.96145700385948,
+        "rmse": 146.57503779952165
+      },
+      "baseline_metrics": {
+        "mae": 192.46154155231207,
+        "rmse": 203.68753543531423
+      },
+      "validation_design": "Last 18 months held out; no future rows used in training.",
+      "evidence_class": "SYNTHETIC VALIDATION"
+    },
+    "returns": {
+      "task": "discrete-time end-of-life return hazard",
+      "model_name": "scaled logistic discrete-time hazard",
+      "baseline_name": "constant train-event-rate hazard",
+      "metrics": {
+        "brier": 0.0427087260117359,
+        "log_loss": 0.15829108624475097
+      },
+      "baseline_metrics": {
+        "brier": 0.04832646364327738,
+        "log_loss": 0.20121949790051333
+      },
+      "validation_design": "Hold out entire final 20% of cohorts; person-period rows never cross split.",
+      "evidence_class": "SYNTHETIC VALIDATION"
+    },
+    "recovery": {
+      "task": "recovery pathway classification",
+      "model_name": "HistGradientBoostingClassifier",
+      "baseline_name": "majority-class / empirical-frequency",
+      "metrics": {
+        "accuracy": 0.9033333333333333,
+        "macro_f1": 0.8579401741124534,
+        "log_loss": 0.2733861729022966
+      },
+      "baseline_metrics": {
+        "accuracy": 0.5522222222222222,
+        "macro_f1": 0.17788117394416608,
+        "log_loss": 1.1794325344869907
+      },
+      "validation_design": "Final 20% synthetic return records held out before training.",
+      "evidence_class": "SYNTHETIC VALIDATION"
+    },
+    "scrap": {
+      "task": "manufacturing scrap-rate prediction",
+      "model_name": "RandomForestRegressor",
+      "baseline_name": "training-mean scrap rate",
+      "metrics": {
+        "mae": 0.0022356312894081343,
+        "rmse": 0.002891351038116391
+      },
+      "baseline_metrics": {
+        "mae": 0.004095993900468073,
+        "rmse": 0.0050221062480805285
+      },
+      "validation_design": "Last 24 months held out chronologically.",
+      "evidence_class": "SYNTHETIC VALIDATION"
+    }
+  }
+}

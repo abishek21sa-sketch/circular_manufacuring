@@ -1,0 +1,128 @@
+{
+  "project": "Circular Battery Manufacturing & Recovery Decision Intelligence Platform",
+  "release": "PHASE-1",
+  "version": "0.1.0",
+  "data_status": "SYNTHETIC VALIDATION",
+  "decision_scope": "Lifecycle material accounting and circular engineering state; AI/OR are intentionally future phases.",
+  "periods": [
+    {
+      "material_flow": {
+        "period": 1,
+        "production_packs": 1000,
+        "total_material_input_kg": 421052.63157894736,
+        "product_material_kg": 400000.0,
+        "manufacturing_scrap_kg": 21052.63157894736,
+        "collected_return_material_kg": 137760.0,
+        "uncollected_return_material_kg": 30240.0,
+        "second_life_material_kg": 24796.8,
+        "remanufacture_feed_kg": 30307.2,
+        "recycling_feed_kg": 75768.0,
+        "direct_disposal_kg": 6888.0,
+        "recovered_material_kg": 66675.84,
+        "recycling_loss_kg": 9092.160000000003,
+        "closing_recovered_inventory_kg": 0.0,
+        "virgin_requirement_kg": 312271.5284210526,
+        "recycled_content_rate": 0.21932117894736838,
+        "collection_efficiency": 0.82,
+        "recovery_efficiency": 0.884,
+        "landfill_diversion_rate": 0.72488,
+        "material_productivity_packs_per_tonne": 2.375,
+        "manufacturing_balance_error_kg": 0.0,
+        "return_balance_error_kg": 0.0,
+        "recycling_balance_error_kg": 0.0,
+        "inventory_balance_error_kg": 0.0
+      },
+      "lca": {
+        "virgin_material_kgco2e": 1674556.0711578946,
+        "recovered_material_kgco2e": 191467.38922105267,
+        "collection_transport_kgco2e": 11020.800000000001,
+        "recycling_process_kgco2e": 39477.812210526325,
+        "total_kgco2e": 1916522.0725894736,
+        "functional_unit": "planning-period battery material requirement",
+        "evidence_class": "ASSUMED / SYNTHETIC PHASE-1 FACTORS"
+      }
+    },
+    {
+      "material_flow": {
+        "period": 2,
+        "production_packs": 1100,
+        "total_material_input_kg": 461699.89506820566,
+        "product_material_kg": 440000.0,
+        "manufacturing_scrap_kg": 21699.89506820566,
+        "collected_return_material_kg": 168000.0,
+        "uncollected_return_material_kg": 32000.0,
+        "second_life_material_kg": 31920.0,
+        "remanufacture_feed_kg": 38640.0,
+        "recycling_feed_kg": 90720.0,
+        "direct_disposal_kg": 6720.0,
+        "recovered_material_kg": 80740.8,
+        "recycling_loss_kg": 9979.199999999997,
+        "closing_recovered_inventory_kg": 0.0,
+        "virgin_requirement_kg": 337559.30493179435,
+        "recycled_content_rate": 0.23281976151864922,
+        "collection_efficiency": 0.84,
+        "recovery_efficiency": 0.9006,
+        "landfill_diversion_rate": 0.7565040000000001,
+        "material_productivity_packs_per_tonne": 2.3825000000000003,
+        "manufacturing_balance_error_kg": 0.0,
+        "return_balance_error_kg": 0.0,
+        "recycling_balance_error_kg": 0.0,
+        "inventory_balance_error_kg": 0.0
+      },
+      "lca": {
+        "virgin_material_kgco2e": 1810161.7726967472,
+        "recovered_material_kgco2e": 223576.81698635884,
+        "collection_transport_kgco2e": 13440.0,
+        "recycling_process_kgco2e": 46098.31278069254,
+        "total_kgco2e": 2093276.9024637986,
+        "functional_unit": "planning-period battery material requirement",
+        "evidence_class": "ASSUMED / SYNTHETIC PHASE-1 FACTORS"
+      }
+    },
+    {
+      "material_flow": {
+        "period": 3,
+        "production_packs": 1200,
+        "total_material_input_kg": 502617.8010471204,
+        "product_material_kg": 480000.0,
+        "manufacturing_scrap_kg": 22617.801047120418,
+        "collected_return_material_kg": 202960.0,
+        "uncollected_return_material_kg": 33040.0,
+        "second_life_material_kg": 40592.0,
+        "remanufacture_feed_kg": 48710.4,
+        "recycling_feed_kg": 107568.8,
+        "direct_disposal_kg": 6088.800000000003,
+        "recovered_material_kg": 96811.92,
+        "recycling_loss_kg": 10756.880000000005,
+        "closing_recovered_inventory_kg": 0.0,
+        "virgin_requirement_kg": 360570.2789528796,
+        "recycled_content_rate": 0.24881191884816753,
+        "collection_efficiency": 0.86,
+        "recovery_efficiency": 0.917,
+        "landfill_diversion_rate": 0.78862,
+        "material_productivity_packs_per_tonne": 2.3875,
+        "manufacturing_balance_error_kg": 0.0,
+        "return_balance_error_kg": 0.0,
+        "recycling_balance_error_kg": 0.0,
+        "inventory_balance_error_kg": 0.0
+      },
+      "lca": {
+        "virgin_material_kgco2e": 1933558.1208848169,
+        "recovered_material_kgco2e": 260655.3661853403,
+        "collection_transport_kgco2e": 16236.800000000001,
+        "recycling_process_kgco2e": 53743.37447120418,
+        "total_kgco2e": 2264193.6615413614,
+        "functional_unit": "planning-period battery material requirement",
+        "evidence_class": "ASSUMED / SYNTHETIC PHASE-1 FACTORS"
+      }
+    }
+  ],
+  "recovery_value_stream": {
+    "value_added_hours": 11.5,
+    "total_lead_time_hours": 61.5,
+    "process_cycle_efficiency": 0.18699186991869918,
+    "cumulative_recovery_yield": 0.8043839999999999,
+    "bottleneck_wait_step": "diagnostic_grading",
+    "evidence_class": "CALCULATED"
+  }
+}

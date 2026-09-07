@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "registry": "data/public/data_source_registry.json",
+  "source_count": 16,
+  "integrated_reference_count": 1,
+  "checks": {
+    "registry_json": true,
+    "source_inventory_nonempty": true,
+    "unique_source_ids": true,
+    "integrated_reference_declared": true,
+    "synthetic_fallback_declared": true,
+    "github_disclosure_present": true
+  },
+  "errors": [],
+  "claim_boundary": "The registry describes access and evidence boundaries; it does not grant permission or prove source truth."
+}

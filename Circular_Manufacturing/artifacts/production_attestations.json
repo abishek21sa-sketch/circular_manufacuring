@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "release": "CIRCULAR_PRODUCT_V1",
+  "status": "BLOCKED",
+  "attestations": [
+    {
+      "id": "commercial_gurobi_entitlement",
+      "status": "PENDING",
+      "evidence_ref": null,
+      "evidence_sha256": null,
+      "approved_by": null,
+      "approved_at_utc": null,
+      "notes": "Use a redacted commercial entitlement and deployment authorization record; never commit a license file or credential."
+    },
+    {
+      "id": "enterprise_identity_and_transport",
+      "status": "PENDING",
+      "evidence_ref": null,
+      "evidence_sha256": null,
+      "approved_by": null,
+      "approved_at_utc": null,
+      "notes": "Attach the approved IAM/RBAC, TLS, secret-management, audit-retention, and network-control verification record."
+    },
+    {
+      "id": "field_calibration_and_data_lineage",
+      "status": "PENDING",
+      "evidence_ref": null,
+      "evidence_sha256": null,
+      "approved_by": null,
+      "approved_at_utc": null,
+      "notes": "Attach the governed plant-data lineage, calibration, and backtesting approval record."
+    },
+    {
+      "id": "realized_benefit_validation",
+      "status": "PENDING",
+      "evidence_ref": null,
+      "evidence_sha256": null,
+      "approved_by": null,
+      "approved_at_utc": null,
+      "notes": "Attach measured service, cost, recovery, emissions, and circularity results against an approved baseline."
+    }
+  ],
+  "claim_boundary": "This register is a controlled evidence intake point. Pending entries are not production approvals, and changing a status without the referenced evidence would be an invalid release claim."
+}

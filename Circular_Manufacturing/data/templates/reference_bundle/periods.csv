@@ -1,0 +1,5 @@
+period,production_packs,eol_returns_packs,collection_rate,grade_A,grade_B,grade_C
+1,2200,720,0.84,0.22,0.46,0.32
+2,2350,820,0.86,0.2,0.47,0.33
+3,2500,960,0.88,0.18,0.48,0.34
+4,2650,1110,0.89,0.17,0.47,0.36

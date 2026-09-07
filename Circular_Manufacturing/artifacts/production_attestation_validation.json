@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "status": "BLOCKED",
+  "passed": false,
+  "attestations": [
+    {
+      "id": "commercial_gurobi_entitlement",
+      "status": "PENDING",
+      "owner": "commercial licensing / platform operations",
+      "exit_criteria": "document a commercial Gurobi entitlement and production deployment authorization",
+      "evidence_boundary": "a redacted authorization record is required; license credentials must never be committed",
+      "evidence_ref": null,
+      "approved_by": null,
+      "approved_at_utc": null,
+      "issues": [
+        "attestation status is not APPROVED"
+      ]
+    },
+    {
+      "id": "enterprise_identity_and_transport",
+      "status": "PENDING",
+      "owner": "deployment security",
+      "exit_criteria": "deploy behind approved IAM/RBAC, TLS termination, secret management, audit retention, and network controls",
+      "evidence_boundary": "an approved architecture and deployment verification record are required",
+      "evidence_ref": null,
+      "approved_by": null,
+      "approved_at_utc": null,
+      "issues": [
+        "attestation status is not APPROVED"
+      ]
+    },
+    {
+      "id": "field_calibration_and_data_lineage",
+      "status": "PENDING",
+      "owner": "operations engineering / data governance",
+      "exit_criteria": "approve source data lineage, calibrate recovery/yield/cost assumptions, and complete backtesting with governed plant data",
+      "evidence_boundary": "plant data must be governed and its validation record must be independently reviewable",
+      "evidence_ref": null,
+      "approved_by": null,
+      "approved_at_utc": null,
+      "issues": [
+        "attestation status is not APPROVED"
+      ]
+    },
+    {
+      "id": "realized_benefit_validation",
+      "status": "PENDING",
+      "owner": "business owner / finance / sustainability",
+      "exit_criteria": "measure and approve realized service, cost, recovery, emissions, and circularity outcomes against a controlled baseline",
+      "evidence_boundary": "benefits must be measured against an approved baseline; synthetic projections do not qualify",
+      "evidence_ref": null,
+      "approved_by": null,
+      "approved_at_utc": null,
+      "issues": [
+        "attestation status is not APPROVED"
+      ]
+    }
+  ],
+  "unknown_attestation_ids": [],
+  "register_issues": [],
+  "claim_boundary": "This validator checks evidence references, hashes, and approval metadata. It cannot independently establish the truth of an external authorization, security approval, plant-data result, or business-benefit claim."
+}

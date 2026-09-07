@@ -1,0 +1,19 @@
+# Product repository wrapper
+Circular_Manufacturing/.venv/
+Circular_Manufacturing/web/node_modules/
+Circular_Manufacturing/__pycache__/
+Circular_Manufacturing/**/__pycache__/
+Circular_Manufacturing/.pytest_cache/
+Circular_Manufacturing/.coverage
+Circular_Manufacturing/.env
+Circular_Manufacturing/build/
+Circular_Manufacturing/dist/
+Circular_Manufacturing/*.egg-info/
+Circular_Manufacturing/artifacts/platform/*.sqlite3
+Circular_Manufacturing/artifacts/platform/*.sqlite3-*
+Circular_Manufacturing/artifacts/logs/*.jsonl
+Circular_Manufacturing/artifacts/external_bundle_report.json
+Circular_Manufacturing/artifacts/postgres_operational_check.json
+*.zip
+Thumbs.db
+.DS_Store

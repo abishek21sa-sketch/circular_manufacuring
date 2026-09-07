@@ -1,0 +1,12 @@
+{
+  "phase": "PHASE-1",
+  "passed": true,
+  "checks": {
+    "mass_balance_max_abs_error_kg": 0.0,
+    "mass_balance_pass": true,
+    "rates_bounded": true,
+    "lca_positive": true,
+    "vsm_pce_bounded": true,
+    "synthetic_label_present": true
+  }
+}

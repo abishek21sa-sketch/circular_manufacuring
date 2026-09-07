@@ -1,0 +1,26 @@
+{
+  "release": "V1.2.1",
+  "version": "1.2.1",
+  "passed": true,
+  "checks": {
+    "version_1_2_1": true,
+    "coupled_plan_optimal": true,
+    "coupled_critical_materials_optimal": true,
+    "coupled_routing_optimal": true,
+    "routing_mass_contract": true,
+    "math_inventory_seven_models": true,
+    "integration_contract_complete": true,
+    "known_boundaries_visible": true,
+    "frontend_depth": true,
+    "risk_distribution_ui": true,
+    "trace_inspector_ui": true,
+    "stochastic_value_nonnegative": true,
+    "stochastic_value_ordering": true,
+    "stochastic_value_ui": true,
+    "run_report_ui": true
+  },
+  "recommended_policy": "resilience",
+  "coupled_plan_recycled_content": 0.1992883176359851,
+  "critical_recovered_share": 0.20111127432299516,
+  "routing_vehicles": 5
+}

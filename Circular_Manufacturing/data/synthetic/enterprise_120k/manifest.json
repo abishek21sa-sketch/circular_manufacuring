@@ -1,0 +1,169 @@
+{
+  "dataset_name": "CIRCULAR_ENTERPRISE_SYNTHETIC_120K",
+  "schema_version": "1.1",
+  "evidence_class": "SYNTHETIC VALIDATION",
+  "seed": 20260906,
+  "as_of_utc": "2026-09-06T00:00:00+00:00",
+  "canonical_observation_rows": 120000,
+  "case_count": 12,
+  "periods_per_scenario": 10,
+  "scenarios_per_case": 1000,
+  "source_basis": [
+    "https://www.epa.gov/ghgreporting/data-sets",
+    "https://greet.anl.gov/greet_battcf",
+    "https://www.energy.gov/cmei/vehicles/articles/fotw-1350-july-8-2024-2023-united-states-had-battery-recycling-facilities",
+    "https://www.iea.org/reports/global-ev-outlook-2026/electric-vehicle-batteries",
+    "https://www.eia.gov/consumption/manufacturing/"
+  ],
+  "lineage": {
+    "source_system": "deterministic-synthetic-generator",
+    "source_owner": "circular-engineering",
+    "facility_id": "synthetic-multi-facility",
+    "as_of_utc": "2026-09-06T00:00:00+00:00",
+    "data_classification": "synthetic-validation"
+  },
+  "files": {
+    "observations.csv": {
+      "rows": 120000,
+      "sha256": "1afdbc583c1de766c1ea53942af02bc4655f069ff4d6d75f774105523e18ad4f",
+      "bytes": 49132614
+    },
+    "case_catalog.csv": {
+      "rows": 12,
+      "sha256": "f65d85e4104a3c5db74808096cdbec7a6350af0992638ef4ca95bcbbfc2ddc16",
+      "bytes": 1362
+    },
+    "adversarial_cases.csv": {
+      "rows": 6,
+      "sha256": "f6d68cfb12e5a05f2ca97fe243bbb077f4d47244990c5ddda6d7e4e854d5a584",
+      "bytes": 387
+    }
+  },
+  "case_types": [
+    "baseline",
+    "seasonal_peak",
+    "demand_downturn",
+    "scrap_spike",
+    "quality_degradation",
+    "transport_disruption",
+    "facility_outage",
+    "material_shortage",
+    "grid_carbon_spike",
+    "return_surge",
+    "reman_eligibility_low",
+    "service_infeasible"
+  ],
+  "public_context_profile": {
+    "source_path": "data/public/epa_ghgrp_2023_facilities.csv",
+    "source_record_count": 6470,
+    "sector_counts": {
+      "Chemicals": 341,
+      "Chemicals,Coal-based Liquid Fuel Supply,Suppliers of CO2": 1,
+      "Chemicals,Industrial Gas Suppliers": 15,
+      "Chemicals,Industrial Gas Suppliers,Minerals": 1,
+      "Chemicals,Industrial Gas Suppliers,Waste": 1,
+      "Chemicals,Other,Petroleum Product Suppliers,Power Plants,Refineries": 1,
+      "Chemicals,Other,Petroleum and Natural Gas Systems,Waste": 1,
+      "Chemicals,Other,Power Plants": 1,
+      "Chemicals,Other,Refineries,Suppliers of CO2": 1,
+      "Chemicals,Petroleum Product Suppliers": 3,
+      "Chemicals,Petroleum Product Suppliers,Power Plants,Refineries": 1,
+      "Chemicals,Petroleum Product Suppliers,Refineries": 37,
+      "Chemicals,Petroleum Product Suppliers,Refineries,Suppliers of CO2": 3,
+      "Chemicals,Petroleum Product Suppliers,Refineries,Suppliers of CO2,Waste": 1,
+      "Chemicals,Petroleum Product Suppliers,Refineries,Waste": 1,
+      "Chemicals,Petroleum and Natural Gas Systems,Refineries": 1,
+      "Chemicals,Power Plants": 1,
+      "Chemicals,Power Plants,Waste": 1,
+      "Chemicals,Refineries": 5,
+      "Chemicals,Refineries,Suppliers of CO2": 2,
+      "Chemicals,Refineries,Waste": 1,
+      "Chemicals,Suppliers of CO2": 32,
+      "Chemicals,Waste": 10,
+      "Import and Export of Equipment Containing Fluorintaed GHGs,Industrial Gas Suppliers,Other": 1,
+      "Import and Export of Equipment Containing Fluorintaed GHGs,Other": 7,
+      "Industrial Gas Suppliers,Other": 3,
+      "Injection of CO2,Natural Gas and Natural Gas Liquids Suppliers,Petroleum and Natural Gas Systems": 1,
+      "Injection of CO2,Natural Gas and Natural Gas Liquids Suppliers,Petroleum and Natural Gas Systems,Suppliers of CO2": 2,
+      "Injection of CO2,Other,Suppliers of CO2": 1,
+      "Injection of CO2,Other,Suppliers of CO2,Waste": 1,
+      "Injection of CO2,Petroleum and Natural Gas Systems": 7,
+      "Injection of CO2,Petroleum and Natural Gas Systems,Suppliers of CO2": 14,
+      "Metals": 278,
+      "Metals,Minerals": 1,
+      "Metals,Power Plants": 1,
+      "Metals,Waste": 15,
+      "Minerals": 374,
+      "Minerals,Waste": 9,
+      "Natural Gas and Natural Gas Liquids Suppliers,Other": 1,
+      "Natural Gas and Natural Gas Liquids Suppliers,Petroleum and Natural Gas Systems": 88,
+      "Natural Gas and Natural Gas Liquids Suppliers,Petroleum and Natural Gas Systems,Power Plants": 1,
+      "Natural Gas and Natural Gas Liquids Suppliers,Power Plants": 3,
+      "Other": 1064,
+      "Other,Petroleum Product Suppliers,Power Plants,Refineries": 1,
+      "Other,Petroleum and Natural Gas Systems": 4,
+      "Other,Power Plants": 7,
+      "Other,Suppliers of CO2": 38,
+      "Other,Suppliers of CO2,Waste": 9,
+      "Other,Waste": 110,
+      "Petroleum Product Suppliers,Petroleum and Natural Gas Systems": 3,
+      "Petroleum Product Suppliers,Power Plants,Refineries,Suppliers of CO2": 1,
+      "Petroleum Product Suppliers,Refineries": 71,
+      "Petroleum Product Suppliers,Refineries,Waste": 1,
+      "Petroleum and Natural Gas Systems": 1172,
+      "Petroleum and Natural Gas Systems,Power Plants": 2,
+      "Petroleum and Natural Gas Systems,Suppliers of CO2": 9,
+      "Power Plants": 1290,
+      "Power Plants,Suppliers of CO2": 2,
+      "Power Plants,Waste": 7,
+      "Pulp and Paper": 119,
+      "Pulp and Paper,Suppliers of CO2": 1,
+      "Pulp and Paper,Suppliers of CO2,Waste": 3,
+      "Pulp and Paper,Waste": 85,
+      "Refineries": 4,
+      "Refineries,Waste": 1,
+      "Waste": 1196
+    },
+    "emissions_tier_thresholds_mtco2e": {
+      "low_max": 40117.09216,
+      "mid_max": 120094.5092
+    },
+    "sampling_method": "Uniform sampling with replacement from public EPA sector/emissions records; facility identifiers and names are not copied."
+  },
+  "trend_profiles": {
+    "demand_growth": {
+      "weight": 0.45,
+      "description": "Conservative demand expansion stress profile.",
+      "annual_demand_growth": 0.025,
+      "annual_return_growth": 0.01,
+      "annual_material_price_growth": 0.0
+    },
+    "recycling_feedstock_lag": {
+      "weight": 0.25,
+      "description": "Demand grows ahead of end-of-life feedstock availability.",
+      "annual_demand_growth": 0.018,
+      "annual_return_growth": 0.004,
+      "annual_material_price_growth": 0.006
+    },
+    "manufacturing_scale_up": {
+      "weight": 0.2,
+      "description": "Capacity expansion with temporary throughput and quality pressure.",
+      "annual_demand_growth": 0.02,
+      "annual_return_growth": 0.008,
+      "annual_material_price_growth": 0.004
+    },
+    "energy_price_stress": {
+      "weight": 0.1,
+      "description": "Energy-intensive operations face a bounded price-pressure scenario.",
+      "annual_demand_growth": 0.01,
+      "annual_return_growth": 0.006,
+      "annual_material_price_growth": 0.012
+    }
+  },
+  "trend_horizon": {
+    "start_year": 2026,
+    "periods": 10,
+    "interpretation": "bounded scenario stress horizon, not a forecast"
+  },
+  "claim_boundary": "Synthetic rows are for software, optimization, robustness, and training-pipeline validation. They are not plant telemetry, measured emissions, or realized-benefit evidence."
+}

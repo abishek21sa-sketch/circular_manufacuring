@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-09-07T12:51:33.563301+00:00",
+  "release": "CIRCULAR_PRODUCT_V1",
+  "release_class": "GUROBI_VERIFIED_ENGINEERING_RC",
+  "engineering_gate": {
+    "status": "PASS",
+    "passed_checks": 14,
+    "total_checks": 14,
+    "checks": {
+      "required_release_controls": {
+        "status": "PASS",
+        "evidence": "REQUIRED_FILES",
+        "detail": "all required lock, deployment, security, diagnostic, and evidence files are present"
+      },
+      "pinned_windows_runtime": {
+        "status": "PASS",
+        "evidence": "requirements-windows-py314.lock",
+        "detail": "verified Windows CPython 3.14 dependency pins include the licensed solver"
+      },
+      "v1_diagnostics": {
+        "status": "PASS",
+        "evidence": "docs/validation/v1_diagnostics.json",
+        "detail": "V1 diagnostics pass and every recorded diagnostic check is true"
+      },
+      "circular_mass_evidence": {
+        "status": "PASS",
+        "evidence": "artifacts/circular_mass/evidence.json",
+        "detail": "CIRCULAR-MASS synthetic formulation evidence reports 10/10 checks"
+      },
+      "product_integration_evidence": {
+        "status": "PASS",
+        "evidence": "artifacts/circular_mass/product_decision_evidence.json",
+        "detail": "product integration evidence reports 7/7 checks"
+      },
+      "gurobi_circular_mass_gate": {
+        "status": "PASS",
+        "evidence": "artifacts/circular_mass/gurobi_validation.json",
+        "detail": "licensed Gurobi reference/stress verification reports 11/11 checks and zero reference MIP gap"
+      },
+      "database_migration_inventory": {
+        "status": "PASS",
+        "evidence": "artifacts/database_migration_validation.json",
+        "detail": "checked-in PostgreSQL migrations are contiguous, schema-complete, and free of forbidden content"
+      },
+      "public_reference_dataset": {
+        "status": "PASS",
+        "evidence": "artifacts/public_reference_validation.json",
+        "detail": "EPA GHGRP public facility reference extract is validated, unique, and provenance-labeled"
+      },
+      "synthetic_enterprise_dataset": {
+        "status": "PASS",
+        "evidence": "artifacts/synthetic_enterprise_validation.json",
+        "detail": "120,000-row deterministic synthetic benchmark passes schema, range, case-coverage, public-context, trend-profile, physical-reconciliation, and fingerprint checks"
+      },
+      "synthetic_enterprise_gurobi_gate": {
+        "status": "PASS",
+        "evidence": "artifacts/synthetic_enterprise_gurobi_validation.json",
+        "detail": "case-stratified synthetic benchmark solves through the explicit Gurobi backend with optimal status, zero MIP gap, and feasible constraints"
+      },
+      "data_source_registry": {
+        "status": "PASS",
+        "evidence": "artifacts/data_source_registry_validation.json",
+        "detail": "public, research, community, commercial, and private data-source boundaries are explicitly inventoried and the synthetic fallback is declared"
+      },
+      "runtime_target": {
+        "status": "PASS",
+        "evidence": "pyproject.toml / runtime",
+        "detail": "running CPython 3.14.7 on Windows"
+      },
+      "gurobi_binding": {
+        "status": "PASS",
+        "evidence": "importlib.metadata gurobipy",
+        "detail": "gurobipy 13.0.3 is installed; license credentials are not recorded"
+      },
+      "release_artifact_cleanliness": {
+        "status": "PASS",
+        "evidence": "source tree inventory",
+        "detail": "no .env, local database, runtime log, estimator .joblib, or nested .zip release files found; ephemeral output is excluded"
+      }
+    }
+  },
+  "commercial_production_gate": {
+    "status": "BLOCKED",
+    "blockers": [
+      {
+        "id": "commercial_gurobi_entitlement",
+        "status": "PENDING",
+        "owner": "commercial licensing / platform operations",
+        "exit_criteria": "document a commercial Gurobi entitlement and production deployment authorization",
+        "evidence_boundary": "a redacted authorization record is required; license credentials must never be committed",
+        "evidence_ref": null,
+        "issues": [
+          "attestation status is not APPROVED"
+        ]
+      },
+      {
+        "id": "enterprise_identity_and_transport",
+        "status": "PENDING",
+        "owner": "deployment security",
+        "exit_criteria": "deploy behind approved IAM/RBAC, TLS termination, secret management, audit retention, and network controls",
+        "evidence_boundary": "an approved architecture and deployment verification record are required",
+        "evidence_ref": null,
+        "issues": [
+          "attestation status is not APPROVED"
+        ]
+      },
+      {
+        "id": "field_calibration_and_data_lineage",
+        "status": "PENDING",
+        "owner": "operations engineering / data governance",
+        "exit_criteria": "approve source data lineage, calibrate recovery/yield/cost assumptions, and complete backtesting with governed plant data",
+        "evidence_boundary": "plant data must be governed and its validation record must be independently reviewable",
+        "evidence_ref": null,
+        "issues": [
+          "attestation status is not APPROVED"
+        ]
+      },
+      {
+        "id": "realized_benefit_validation",
+        "status": "PENDING",
+        "owner": "business owner / finance / sustainability",
+        "exit_criteria": "measure and approve realized service, cost, recovery, emissions, and circularity outcomes against a controlled baseline",
+        "evidence_boundary": "benefits must be measured against an approved baseline; synthetic projections do not qualify",
+        "evidence_ref": null,
+        "issues": [
+          "attestation status is not APPROVED"
+        ]
+      }
+    ]
+  },
+  "runtime": {
+    "python": "3.14.7",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "gurobipy": "13.0.3"
+  },
+  "artifact_inventory": {
+    "source_file_count": 357,
+    "forbidden_release_files": [],
+    "ignored_ephemeral_files": [
+      ".coverage",
+      "artifacts/logs/platform.jsonl",
+      "artifacts/platform/circular_v1.sqlite3",
+      "artifacts/platform/studio_local.sqlite3",
+      "artifacts/platform/visual_review.sqlite3",
+      "artifacts/postgres_operational_check.json"
+    ]
+  },
+  "evidence_fingerprints": {
+    "requirements-windows-py314.lock": "0d6e3cc50438af79840d936b18ac4d9039252be3f1893291258f1d1fd2c7b4e1",
+    "migrations/README.md": "902ee85414baedfb904d57ac2c933a53d2ffb37532cdd9e5b4a6c27f1eb8071d",
+    "migrations/postgres/001_initial_schema.sql": "89eff61680aef36f1a7b0d496dae629f535b08f1f5006d48a34fe8979a031586",
+    "artifacts/production_attestations.json": "ad0f485a482a34cbee6d476db68a65b63f8e5d225170954847e0e9427640caa4",
+    "artifacts/production_attestation_validation.json": "f30d5f5afa955e469d9debdc8baf99f71ee6006797fe399dedb77488baebbf2c",
+    "artifacts/database_migration_validation.json": "f26904b718e6b6b24786758668a63af3a70c0f14b5469818633a6854701ddfaa",
+    "artifacts/public_reference_validation.json": "d7b22f5fdba26d5db481051968478a326b7af85c28ed1ae1ea29cb6c2e5e604d",
+    "web/package.json": "b08747a90fdf205fd987288ba8ccc4cc75be13d846d7fa429208cb0ae6db4b31",
+    "web/package-lock.json": "a31a8c0afc5630112962fad5e6bde5f55e379260ccefa032cdf8484a129c70c9",
+    "web/tsconfig.json": "afe56b0587e6db0f85b71880a662bdec11eb660d815dbd82dfec7fcf149683e2",
+    "scripts/build_frontend.py": "e324b2257e98b04db529111eddd92909b345c4e7d6fa4bc9289c00fec8dd853c",
+    "scripts/validate_production_attestations.py": "2521169aa90cf2fabf9f8524841746c3e6e7ef22f799b0dd014906b014ee6790",
+    "scripts/validate_database_migrations.py": "321b0c50ba22cc0282fd4a2afff0af20d9200f6157dbb7c55bdeae6a9e1fefdc",
+    "scripts/validate_public_reference_dataset.py": "4d224372ac57da6be1bad3bb106488c10ca4e71e693a43ecb184c53d758c8f1b",
+    "data/public/epa_ghgrp_2023_facilities.csv": "83f62e61a86c5f6f4a95af9f5a425c56169d1ff266e3bac713a2b29f1d9bda4b",
+    "data/public/epa_ghgrp_2023_metadata.json": "c6ebae68360e066fbeff8ea4ab26d7123131d103ca2f5d322c133477f89a807e",
+    "data/public/data_source_registry.json": "7462235de7d6864b5ebcba8a0e8913433e5eb7d82934ef0cb8c3e0ac3dcba0cf",
+    "data/synthetic/enterprise_120k/manifest.json": "d0a75e943023949bf3fe94c762d87cefd8a9674513678c8ebd9f75044e54069b",
+    "data/synthetic/enterprise_120k/observations.csv": "1afdbc583c1de766c1ea53942af02bc4655f069ff4d6d75f774105523e18ad4f",
+    "data/synthetic/enterprise_120k/case_catalog.csv": "f65d85e4104a3c5db74808096cdbec7a6350af0992638ef4ca95bcbbfc2ddc16",
+    "data/synthetic/enterprise_120k/adversarial_cases.csv": "f6d68cfb12e5a05f2ca97fe243bbb077f4d47244990c5ddda6d7e4e854d5a584",
+    "src/circular_battery/ingestion/public_reference.py": "64dae2719f21a615f39eb4ad2aaef8759edef78a644bb6cb3e891cc6ef7b7b17",
+    "scripts/postgres_operational_check.py": "b312d91e5e313c75804ae033d53cfbb27ad8b21e544bd4e9d2f6a0988b078a33",
+    "scripts/validate_pilot_bundle.py": "addf0702ecd647d001a106eea188f524f9209164038335ebf45a1e82ca597f08",
+    "scripts/benefit_measurement.py": "2fdb85a4241ee9746e9b6e85c1c6915d28220a0b4e32e6ca14520ba4a749227a",
+    "render.yaml": "9e4b625f00e4c4bd70b0bcd27af77a5e3f364fee28b4b042a312250dfc7baf50",
+    "Dockerfile": "8c70901d9777940a6643513d9e9776e2e0d8eb6e537f3d552b80035eaf795da1",
+    ".env.example": "2cb0237334921ac5f92d6406e5c8cc03d4e8f55bdf168e4a076d966bfce04eb6",
+    "docs/SECURITY.md": "d75c3a7fb069f51435c095c599c63c6a5f5efe8ece3263ba6a6d53b35b36a1a5",
+    "docs/LIMITATIONS.md": "8d8828d8f11207edef8f95487b490969d4e3ce94c86c31b1ac6ae4169e62227c",
+    "docs/ENTERPRISE_OPERATIONS.md": "0d131e2089f53086d4fefde51b4cb472f074fbf099fc7d9c58acbbce50772f1a",
+    "docs/PRODUCTION_EVIDENCE_INTAKE.md": "5bd628e88090a3e6717b37e110b733a3928a3d054ca100c3936907000b73c4b0",
+    "docs/PUBLIC_REFERENCE_DATA.md": "35fb1426af9e114524a901fed7b1ab7a36c68524e60b4daa44d3c605b2f25f80",
+    "docs/DATA_SOURCE_REVIEW.md": "f4bba61a915fcb7676ddee634f52800da047dfc6436f2bd46ff53ab30c220345",
+    "docs/PILOT_DATA_AND_BENEFITS.md": "a17d362acef36da171afc7228a93a0771673e4221de577d66741e996170137df",
+    "docs/SYNTHETIC_ENTERPRISE_DATASET.md": "be72703c39673f25471c4e81ed7d4342f2c12a541d06e5ca89c15da925e06b55",
+    "data/templates/pilot_bundle/README.md": "5d850c60f44512f1266ebd16d79e3b5fb6f1c644bebe70116f2de729739054e7",
+    "data/templates/pilot_measurements.csv": "19a45d212f66ae041985d55c9f02c95ce754f9293295b0f95995d5467cd69928",
+    "src/circular_battery/platform/postgres_storage.py": "d1d4598e02cfc24e2827a4dfece2d9f3ed0317a9b60e6dcb046b70c2ff4152f9",
+    "src/circular_battery/ingestion/governance.py": "5c12e4d6a9d1f7ef7ce74126a2b9400647ec085f74e1c456641334df5c70d3ac",
+    "src/circular_battery/web/auth.py": "1efab322a8cbfb8bbefeda2eab13b7db5fa30c41b572108010c9422bfc591200",
+    "scripts/security_scan.py": "097bfc77d1ad190af810c352f248df67002e20d46d22d775b9c063ed494ea49a",
+    "scripts/generate_synthetic_enterprise_dataset.py": "494700a59a6348b0e0a77fa4fe1746ccd4064a4aa68f1b10a038e791ecb1dbad",
+    "scripts/validate_synthetic_enterprise_dataset.py": "a57e3892151235c1c29b8551b71b825782f15d447e2cf9bc61f7c5682df41d15",
+    "scripts/synthetic_enterprise_gurobi_benchmark.py": "bc28ba576a3b416941aadf760a322f27eb686fd7e5b27c8a88f9c819bc44823d",
+    "scripts/validate_data_source_registry.py": "a5f9063b3e912ea6a0076d0e62b297c829462648317b97f64612366ad7acdfd9",
+    "scripts/validate_engineering_readiness.py": "35227559cc6c92d0c5990b4351740df62a26728f69747c3cecb31c92eb511787",
+    "scripts/production_preflight.py": "2733907103615016bc466cc70d99eb477236d9417e17f1d73ae0a70efd387c80",
+    "scripts/windows_v1_final_gate.ps1": "3f1cb8a7681819bae16aa5862da02ba58210bfa99e7caea88dfab86bc03cfe3e",
+    "docs/validation/v1_diagnostics.json": "781dd28b4da76d2967506b856a78d9dd889888941a72ca286775dd49d5748f04",
+    "artifacts/production_preflight.json": "deb0c4bb1459513ddd5020956967b45c7bfbfcf33b74046c83d23f0e434bfffd",
+    "artifacts/governed_reference_bundle.json": "30851cc15432cd302fdaa274ff896b89572e9779723821a66b67454de2486ff3",
+    "artifacts/circular_mass/evidence.json": "f67aab011de95896274200534ff914f2399677eae15066211e3ede8406b7fffe",
+    "artifacts/circular_mass/product_decision_evidence.json": "e2d0cc905a7e600e0b98f2499eb7398cac6c78132486158767c5b5529d9809e4",
+    "artifacts/circular_mass/gurobi_validation.json": "a434d1bb5e83823d682fe60e9bf0a505309b6638fc37b69be0914e8ca8f9a3e5",
+    "artifacts/synthetic_enterprise_validation.json": "839b066169d84d55e4f912b22052a112a01e128a9cfb0f52ea26b8b121110346",
+    "artifacts/synthetic_enterprise_gurobi_validation.json": "1c23fa3b2c6b7f01a1f2981e8a3bde66a68333825be09518d318283a8805ff9d"
+  },
+  "claim_boundary": "This register certifies a repeatable engineering evidence state only. It does not certify production readiness, commercial solver authorization, field calibration, security accreditation, or realized benefits."
+}

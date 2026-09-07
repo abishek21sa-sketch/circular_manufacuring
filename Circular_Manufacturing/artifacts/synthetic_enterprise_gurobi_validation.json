@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "dataset": "data/synthetic/enterprise_120k",
+  "input_rows": 120000,
+  "scenario_count": 12,
+  "solver": "gurobi",
+  "requested_license_policy": "Academic Gurobi for research/engineering validation only; commercial production authorization remains external.",
+  "checks": {
+    "backend_is_gurobi": true,
+    "status_optimal": true,
+    "zero_mip_gap": true,
+    "feasible": true,
+    "case_stratified_scenarios": true,
+    "probabilities_close": true
+  },
+  "solution": {
+    "status": "OPTIMAL",
+    "objective": 3087548.0349457897,
+    "routed_kg": {
+      "Synthetic-Recycle-East": 0.0,
+      "Synthetic-Reman-Midwest": 1456884.4430054782,
+      "Synthetic-Recovery-West": 0.0
+    },
+    "open_facilities": {
+      "Synthetic-Recycle-East": 0,
+      "Synthetic-Reman-Midwest": 1,
+      "Synthetic-Recovery-West": 0
+    },
+    "virgin_kg": [
+      9816.456588159548,
+      0.0,
+      0.0,
+      5624.867183403345,
+      1373.4134779835586,
+      49312.842275144765,
+      3566.727817039704,
+      39690.9893156304,
+      6605.94700252125,
+      348483.7334118441,
+      261905.85268373135,
+      0.0
+    ],
+    "shortage_kg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "expected_shortage_kg": 0.0,
+    "cvar_shortage_kg": 0.0,
+    "expected_recovered_kg": 1162449.4537468285,
+    "recycled_content_share": 0.9505047695502631,
+    "max_constraint_violation": 2.3283064365386963e-10,
+    "solver": "gurobi",
+    "eta": -0.0,
+    "alpha": 0.9,
+    "scenario_details": [
+      {
+        "name": "baseline",
+        "probability": 0.08333333333333333,
+        "demand_kg": 1211381.1927654,
+        "yields": [
+          0.8860216274,
+          0.8247495139000001,
+          0.85538557065
+        ],
+        "recovery_output_kg": 1201564.7361772405,
+        "recovered_kg": 1201564.7361772405,
+        "surplus_kg": 0.0,
+        "virgin_kg": 9816.456588159548,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.9918964759839551
+      },
+      {
+        "name": "demand_downturn",
+        "probability": 0.08333333333333333,
+        "demand_kg": 775739.3302485,
+        "yields": [
+          0.8861168024,
+          0.8249647254,
+          0.8555407639
+        ],
+        "recovery_output_kg": 1201878.2744635462,
+        "recovered_kg": 775739.3302485,
+        "surplus_kg": 426138.94421504624,
+        "virgin_kg": 0.0,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 1.0
+      },
+      {
+        "name": "facility_outage",
+        "probability": 0.08333333333333333,
+        "demand_kg": 1197946.2166304002,
+        "yields": [
+          0.8858688802000001,
+          0.8248918068000001,
+          0.8553803435
+        ],
+        "recovery_output_kg": 1201772.0404896007,
+        "recovered_kg": 1197946.2166304004,
+        "surplus_kg": 3825.823859200347,
+        "virgin_kg": 0.0,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 1.0000000000000002
+      },
+      {
+        "name": "grid_carbon_spike",
+        "probability": 0.08333333333333333,
+        "demand_kg": 1207956.0804643,
+        "yields": [
+          0.8856984597,
+          0.8252756209,
+          0.8554870403
+        ],
+        "recovery_output_kg": 1202331.2132808967,
+        "recovered_kg": 1202331.2132808967,
+        "surplus_kg": 0.0,
+        "virgin_kg": 5624.867183403345,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.9953434836958299
+      },
+      {
+        "name": "material_shortage",
+        "probability": 0.08333333333333333,
+        "demand_kg": 1204061.7363796,
+        "yields": [
+          0.8260830004999999,
+          0.8255207395999999,
+          0.8258018700499999
+        ],
+        "recovery_output_kg": 1202688.3229016163,
+        "recovered_kg": 1202688.3229016163,
+        "surplus_kg": 0.0,
+        "virgin_kg": 1373.4134779835586,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.9988593496193034
+      },
+      {
+        "name": "quality_degradation",
+        "probability": 0.08333333333333333,
+        "demand_kg": 1205538.5296574,
+        "yields": [
+          0.8738701092,
+          0.7936289614,
+          0.8337495353
+        ],
+        "recovery_output_kg": 1156225.6873822552,
+        "recovered_kg": 1156225.6873822552,
+        "surplus_kg": 0.0,
+        "virgin_kg": 49312.842275144765,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.9590947605057808
+      },
+      {
+        "name": "reman_eligibility_low",
+        "probability": 0.08333333333333333,
+        "demand_kg": 1205964.2380813998,
+        "yields": [
+          0.8861510179000001,
+          0.8253211268999999,
+          0.8557360724
+        ],
+        "recovery_output_kg": 1202397.51026436,
+        "recovered_kg": 1202397.51026436,
+        "surplus_kg": 0.0,
+        "virgin_kg": 3566.727817039704,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.9970424265459861
+      },
+      {
+        "name": "return_surge",
+        "probability": 0.08333333333333333,
+        "demand_kg": 1241514.2948007,
+        "yields": [
+          0.8856014262,
+          0.8249269949,
+          0.85526421055
+        ],
+        "recovery_output_kg": 1201823.3054850695,
+        "recovered_kg": 1201823.3054850695,
+        "surplus_kg": 0.0,
+        "virgin_kg": 39690.9893156304,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.9680301793689762
+      },
+      {
+        "name": "scrap_spike",
+        "probability": 0.08333333333333333,
+        "demand_kg": 1208343.1280353002,
+        "yields": [
+          0.8857184166000001,
+          0.8248678794,
+          0.855293148
+        ],
+        "recovery_output_kg": 1201737.181032779,
+        "recovered_kg": 1201737.181032779,
+        "surplus_kg": 0.0,
+        "virgin_kg": 6605.94700252125,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.9945330536920732
+      },
+      {
+        "name": "seasonal_peak",
+        "probability": 0.08333333333333333,
+        "demand_kg": 1550753.9546625998,
+        "yields": [
+          0.8860877748000001,
+          0.8252337562000001,
+          0.8556607655000001
+        ],
+        "recovery_output_kg": 1202270.2212507557,
+        "recovered_kg": 1202270.2212507557,
+        "surplus_kg": 0.0,
+        "virgin_kg": 348483.7334118441,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.7752810931972349
+      },
+      {
+        "name": "service_infeasible",
+        "probability": 0.08333333333333333,
+        "demand_kg": 1463911.1990851,
+        "yields": [
+          0.8859036807,
+          0.8250519471,
+          0.8554778139
+        ],
+        "recovery_output_kg": 1202005.3464013687,
+        "recovered_kg": 1202005.3464013687,
+        "surplus_kg": 0.0,
+        "virgin_kg": 261905.85268373135,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.8210917077160046
+      },
+      {
+        "name": "transport_disruption",
+        "probability": 0.08333333333333333,
+        "demand_kg": 1202664.3739067,
+        "yields": [
+          0.8860149607,
+          0.8255043011,
+          0.8557596309
+        ],
+        "recovery_output_kg": 1202664.3739067,
+        "recovered_kg": 1202664.3739067,
+        "surplus_kg": 0.0,
+        "virgin_kg": 0.0,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 1.0
+      }
+    ],
+    "objective_components": {
+      "facility_fixed_cost": 210000.0,
+      "recovery_variable_cost": 2695236.2195601347,
+      "expected_virgin_cost": 181595.2074388645,
+      "expected_shortage_cost": 0.0,
+      "expected_surplus_handling_cost": 716.607946790411,
+      "cvar_risk_premium": 0.0
+    },
+    "best_bound": 3087548.0349457897,
+    "mip_gap": 0.0,
+    "runtime_seconds": 0.11800003051757812,
+    "variable_count": 55,
+    "constraint_count": 39,
+    "diagnostics": {
+      "message": "Gurobi (13, 0, 3) status=2",
+      "success": true,
+      "requested_solver_backend": "gurobi",
+      "effective_solver_backend": "gurobi",
+      "solver_name": "gurobi",
+      "integrality_verified": true,
+      "eta_domain": "R",
+      "loss_definition": "scenario shortage kg; CVaR is applied to shortage only",
+      "surplus_definition": "scenario recovery output not consumed by demand; explicitly spilled/held out of recycled-content numerator",
+      "objective_reconciliation_error": 0.0,
+      "expected_demand_kg": 1222981.1895597833
+    },
+    "surplus_kg": [
+      0.0,
+      426138.94421504624,
+      3825.823859200347,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "claim_boundary": "This is a synthetic Gurobi formulation benchmark. It is not a commercial-license approval, plant-performance result, or realized-benefit claim."
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-09-06T18:24:19.358007+00:00",
+  "mode": "local",
+  "host": "127.0.0.1",
+  "loopback": true,
+  "passed": true,
+  "checks": {
+    "deployment_mode": {
+      "status": "PASS",
+      "detail": "deployment mode is local"
+    },
+    "bind_and_authentication": {
+      "status": "PASS",
+      "detail": "127.0.0.1 is protected by disabled authentication in local mode"
+    },
+    "production_database": {
+      "status": "PASS",
+      "detail": "not applicable to loopback local/staging preflight"
+    },
+    "external_production_attestations": {
+      "status": "PASS",
+      "detail": "not applicable to local/staging preflight"
+    }
+  },
+  "blocking_checks": [],
+  "claim_boundary": "Preflight validates configuration declarations and safe binding behavior only. It does not prove commercial licensing, identity-provider assurance, data quality, or realized operational benefits."
+}

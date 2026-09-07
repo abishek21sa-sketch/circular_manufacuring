@@ -1,0 +1,214 @@
+{
+  "release": "V1.2.1",
+  "version": "1.2.1",
+  "status_language": "Evidence-based; synthetic validation is never represented as field validation.",
+  "requirements": [
+    {
+      "capability": "material_flow_analysis",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/lifecycle/engine.py"
+    },
+    {
+      "capability": "lean_value_stream_mapping",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/engineering/value_stream.py"
+    },
+    {
+      "capability": "inventory_management",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/planning/optimizer.py"
+    },
+    {
+      "capability": "production_planning",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/planning/optimizer.py"
+    },
+    {
+      "capability": "resource_efficiency",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/planning/ie_metrics.py"
+    },
+    {
+      "capability": "lifecycle_assessment",
+      "status": "IMPLEMENTED_EXTERNAL_VALIDATION_PENDING",
+      "evidence": "src/circular_battery/lifecycle/impact.py"
+    },
+    {
+      "capability": "remanufacturing",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/lifecycle/engine.py"
+    },
+    {
+      "capability": "recycling_systems",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/logistics/optimizer.py"
+    },
+    {
+      "capability": "closed_loop_supply_chain",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/reporting/phase567.py"
+    },
+    {
+      "capability": "waste_minimization",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/lifecycle/metrics.py"
+    },
+    {
+      "capability": "resource_recovery",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/lifecycle/metrics.py"
+    },
+    {
+      "capability": "network_optimization",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/optimization/stochastic_network.py"
+    },
+    {
+      "capability": "facility_location",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/logistics/optimizer.py"
+    },
+    {
+      "capability": "vehicle_routing",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/routing/cvrp.py"
+    },
+    {
+      "capability": "inventory_optimization",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/planning/optimizer.py"
+    },
+    {
+      "capability": "multiobjective_optimization",
+      "status": "WINDOWS_LICENSED_VALIDATED",
+      "evidence": "src/circular_battery/optimization/gurobi_advanced.py"
+    },
+    {
+      "capability": "stochastic_optimization",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/optimization/stochastic_network.py"
+    },
+    {
+      "capability": "demand_prediction",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/ai/runtime.py"
+    },
+    {
+      "capability": "return_forecasting",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/ai/runtime.py"
+    },
+    {
+      "capability": "waste_prediction",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/ai/runtime.py"
+    },
+    {
+      "capability": "recovery_prediction",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/ai/runtime.py"
+    },
+    {
+      "capability": "ai_uncertainty",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/ai/explainability.py"
+    },
+    {
+      "capability": "explainable_recommendations",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/decision/orchestrator.py"
+    },
+    {
+      "capability": "scenario_analysis",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/analytics/sensitivity.py"
+    },
+    {
+      "capability": "monte_carlo",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/simulation/uncertainty.py"
+    },
+    {
+      "capability": "digital_experiments",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/simulation/policy_experiments.py"
+    },
+    {
+      "capability": "sustainability_impact_assessment",
+      "status": "IMPLEMENTED_EXTERNAL_VALIDATION_PENDING",
+      "evidence": "src/circular_battery/lifecycle/impact.py"
+    },
+    {
+      "capability": "external_data_ingestion",
+      "status": "IMPLEMENTED_SCHEMA_VALIDATED",
+      "evidence": "src/circular_battery/ingestion/bundle.py"
+    },
+    {
+      "capability": "decision_engine",
+      "status": "VALIDATED_SYNTHETIC",
+      "evidence": "src/circular_battery/decision/orchestrator.py"
+    },
+    {
+      "capability": "persistent_run_registry",
+      "status": "IMPLEMENTED_TESTED",
+      "evidence": "src/circular_battery/platform/storage.py"
+    },
+    {
+      "capability": "provenance_and_audit",
+      "status": "IMPLEMENTED_TESTED",
+      "evidence": "src/circular_battery/platform/provenance.py"
+    },
+    {
+      "capability": "structured_observability",
+      "status": "IMPLEMENTED_TESTED",
+      "evidence": "src/circular_battery/platform/observability.py"
+    },
+    {
+      "capability": "rest_api",
+      "status": "IMPLEMENTED_TESTED",
+      "evidence": "src/circular_battery/web/server.py"
+    },
+    {
+      "capability": "frontend",
+      "status": "IMPLEMENTED_TESTED",
+      "evidence": "web/src/index.html"
+    },
+    {
+      "capability": "automated_tests",
+      "status": "IMPLEMENTED",
+      "evidence": "tests"
+    },
+    {
+      "capability": "windows_acceptance",
+      "status": "IMPLEMENTED",
+      "evidence": "scripts/windows_v1_acceptance.ps1"
+    },
+    {
+      "capability": "deployment_assets",
+      "status": "IMPLEMENTED_PUBLIC_DEPLOYMENT_PENDING",
+      "evidence": "render.yaml"
+    },
+    {
+      "capability": "documentation",
+      "status": "IMPLEMENTED",
+      "evidence": "docs/TECHNICAL_METHODS.md"
+    }
+  ],
+  "integration_upgrades": [
+    {
+      "capability": "stochastic_recovery_to_ie_planning",
+      "status": "COUPLED_V1_2",
+      "evidence": "src/circular_battery/decision/workbench_v12.py"
+    },
+    {
+      "capability": "ie_plan_to_critical_materials",
+      "status": "COUPLED_V1_2",
+      "evidence": "src/circular_battery/decision/workbench_v12.py"
+    },
+    {
+      "capability": "ai_returns_to_cvrp",
+      "status": "COUPLED_V1_2",
+      "evidence": "src/circular_battery/decision/workbench_v12.py"
+    }
+  ]
+}

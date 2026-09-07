@@ -1,0 +1,17 @@
+{
+  "run_id": "5c3271fb7e499f27",
+  "created_at_utc": "2026-09-04T20:35:17.665902+00:00",
+  "release": "PHASE-10-CUMULATIVE",
+  "version": "0.10.0",
+  "decision_hash_sha256": "5c3271fb7e499f275379aa239225c42d2dddd4b9c41a2a66dab596297918b055",
+  "evidence_classes": [
+    "CALCULATED",
+    "OPTIMIZED",
+    "PREDICTED",
+    "RECOMMENDED",
+    "SIMULATED",
+    "SYNTHETIC VALIDATION"
+  ],
+  "seed": 20260817,
+  "tests_claimed": null
+}

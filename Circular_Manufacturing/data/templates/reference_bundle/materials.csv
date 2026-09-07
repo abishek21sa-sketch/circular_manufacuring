@@ -1,0 +1,8 @@
+name,kg_per_pack,virgin_cost_per_kg,recycled_cost_per_kg,virgin_kgco2e_per_kg,recycled_kgco2e_per_kg,recycling_yield,critical
+lithium,8,18,11,15,4.5,0.92,1
+nickel,32,16,9,9,3,0.94,1
+cobalt,8,34,20,22,6.5,0.95,1
+graphite,45,5,3,5,2,0.88,1
+aluminum,55,3.1,1.9,10,2,0.96,0
+copper,30,9,6,4,1.5,0.97,0
+other,222,2,1.6,3,2,0.7,0

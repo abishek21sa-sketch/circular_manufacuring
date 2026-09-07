@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Material Circularity Studio</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div id="app-shell">
+  <header class="topbar">
+    <div class="brand-block">
+      <span class="brand-mark">CM</span>
+      <div><strong>Material Circularity Studio</strong><small>closed-loop battery decision intelligence</small></div>
+    </div>
+    <nav class="tabs" aria-label="Studio modes">
+      <button class="tab active" data-view="materials">MATERIALS</button>
+      <button class="tab" data-view="network">NETWORK</button>
+      <button class="tab" data-view="plan">PLAN</button>
+      <button class="tab" data-view="strategy">STRATEGY</button>
+      <button class="tab" data-view="routes">ROUTES</button>
+      <button class="tab" data-view="ai">AI</button>
+      <button class="tab" data-view="risk">RISK</button>
+      <button class="tab" data-view="circular-mass">CIRCULAR-MASS</button>
+      <button class="tab" data-view="trace">TRACE</button>
+      <button class="tab" data-view="runs">RUNS</button>
+      <button class="tab" data-view="evidence">EVIDENCE</button>
+    </nav>
+    <div class="evidence-pill"><i></i>SYNTHETIC VALIDATION</div>
+  </header>
+
+  <div id="global-ribbon" class="global-ribbon"></div>
+
+  <main>
+    <section id="materials-view" class="view active-view">
+      <div class="view-grid materials-grid">
+        <div class="panel canvas-panel">
+          <div class="view-title compact-title">
+            <p class="eyebrow">CLOSED-LOOP MATERIAL SYSTEM</p>
+            <h1>Trace the kilogram, not just the KPI.</h1>
+            <p>Material states, recovery losses and virgin displacement are shown as one closed-loop engineering balance.</p>
+          </div>
+          <svg id="materials-flow" viewBox="0 0 1040 540" aria-label="Closed-loop material flow"></svg>
+        </div>
+        <aside class="panel side-panel">
+          <div class="side-heading"><span>STATE INSPECTOR</span><b id="material-inspector-title">Recovered material</b></div>
+          <div id="material-inspector" class="inspector-body"></div>
+          <div class="divider"></div>
+          <div class="side-heading"><span>CRITICAL MATERIAL LEDGER</span><b>usable secondary feed</b></div>
+          <div id="material-ledger" class="material-ledger-v12"></div>
+        </aside>
+      </div>
+      <div id="materials-footer" class="metric-strip"></div>
+    </section>
+
+    <section id="network-view" class="view">
+      <div class="view-title">
+        <div><p class="eyebrow">REVERSE NETWORK / FACILITY LOCATION</p><h1>Where recovery capacity sits changes where material can go.</h1></div>
+        <p>Collection balance, reman eligibility, facility opening, throughput capacity and disposal limits are solved together.</p>
+      </div>
+      <div class="network-layout">
+        <div class="panel"><svg id="network-svg" viewBox="0 0 1080 570"></svg></div>
+        <aside class="panel network-side">
+          <div id="network-kpis" class="stacked-kpis"></div>
+          <div class="divider"></div>
+          <div class="side-heading"><span>FACILITY DECISIONS</span><b>open / closed</b></div>
+          <div id="facility-list" class="facility-list"></div>
+        </aside>
+      </div>
+      <div class="panel table-panel"><div class="panel-label">DOMINANT RECOVERY FLOWS</div><div id="network-flow-table"></div></div>
+    </section>
+
+    <section id="plan-view" class="view">
+      <div class="view-title">
+        <div><p class="eyebrow">COUPLED IE PRODUCTION PLAN</p><h1>Recovery supply now feeds the production plan that follows it.</h1></div>
+        <p>V1.2 couples AI-derived demand and stochastic recovery output into regular capacity, safety stock, recovered inventory and virgin substitution.</p>
+      </div>
+      <div id="plan-summary" class="metric-strip top-strip"></div>
+      <div id="plan-periods" class="period-grid"></div>
+      <div id="plan-metrics" class="panel planning-metrics"></div>
+    </section>
+
+    <section id="strategy-view" class="view">
+      <div class="strategy-layout">
+        <div class="panel strategy-main">
+          <div class="view-title embedded">
+            <div><p class="eyebrow">MULTI-OBJECTIVE POLICY SET</p><h1>Every point has an economic, carbon, virgin and tail-risk price.</h1></div>
+            <p>All six explicit scalarization policies are shown. Nondominated points are highlighted; this is not presented as a continuous Pareto surface.</p>
+          </div>
+          <svg id="strategy-svg" viewBox="0 0 1080 560"></svg>
+          <div id="strategy-table"></div>
+        </div>
+        <aside class="panel strategy-side" id="strategy-inspector"></aside>
+      </div>
+      <div class="panel info-value-panel">
+        <div class="panel-label">STOCHASTIC VALUE OF INFORMATION</div>
+        <div id="stochastic-value" class="stochastic-value-grid"></div>
+      </div>
+    </section>
+
+    <section id="routes-view" class="view">
+      <div class="view-title">
+        <div><p class="eyebrow">AI-COUPLED EXACT CVRP</p><h1>The return forecast becomes pickup demand.</h1></div>
+        <p>V1.2 converts the predicted EOL return state into a representative collection batch, then solves exact capacity-feasible tours.</p>
+      </div>
+      <div class="route-layout-v12">
+        <div class="panel"><svg id="route-svg" viewBox="0 0 980 620"></svg></div>
+        <aside class="panel route-side" id="route-side"></aside>
+      </div>
+    </section>
+
+    <section id="ai-view" class="view">
+      <div class="view-title">
+        <div><p class="eyebrow">PREDICTIVE LAYER</p><h1>Four models earn the right to influence the decision.</h1></div>
+        <p>Held-out performance is shown against explicit baselines, with calibration/uncertainty and model-driver evidence beside it.</p>
+      </div>
+      <div id="ai-model-grid" class="ai-model-grid-v12"></div>
+      <div class="ai-detail-grid">
+        <div class="panel"><div class="panel-label">FORECAST / RETURN STATE</div><svg id="ai-state-svg" viewBox="0 0 760 330"></svg></div>
+        <div class="panel" id="ai-explain-panel"></div>
+      </div>
+    </section>
+
+    <section id="risk-view" class="view">
+      <div class="view-title">
+        <div><p class="eyebrow">POLICY DIGITAL EXPERIMENTS</p><h1>Tail risk should look like a distribution, not a wall of circles.</h1></div>
+        <p>Policies are replayed on the same unreduced futures. The distribution below exposes expected cost, P90 and CVaR95 directly.</p>
+      </div>
+      <div class="risk-layout-v12">
+        <div class="panel risk-main"><div class="risk-toolbar"><div id="risk-policy-tabs"></div><div id="risk-quantiles"></div></div><svg id="risk-svg" viewBox="0 0 1100 520"></svg></div>
+        <aside class="panel risk-side" id="risk-side"></aside>
+      </div>
+      <div class="panel table-panel"><div class="panel-label">SAME-SCENARIO POLICY COMPARISON</div><div id="risk-table"></div></div>
+    </section>
+
+
+    <section id="circular-mass-view" class="view">
+      <div class="view-title">
+        <div><p class="eyebrow">SIGNATURE DECISION WORKSPACE</p><h1>CIRCULAR-MASS · traceable recovery before virgin fallback.</h1></div>
+        <p>Set the circularity policy, solve the stochastic mass-balance MILP, and inspect the evidence gate before any facility or sourcing recommendation is promoted.</p>
+      </div>
+      <div class="cmass-layout">
+        <div class="panel cmass-main">
+          <div class="panel-label">POLICY CONTROLS · ENGINEER REVIEW REQUIRED</div>
+          <div class="cmass-controls">
+            <label>Minimum recycled content <input id="cmass-floor" type="number" min="0" max="0.75" step="0.05" value="0.20"></label>
+            <label>CVaR risk aversion <input id="cmass-risk" type="number" min="0" max="2" step="0.05" value="0.35"></label>
+            <label>Maximum virgin share <input id="cmass-virgin" type="number" min="0" max="1" step="0.05" value="0.72"></label>
+            <button id="cmass-solve">SOLVE + GATE</button>
+          </div>
+          <div id="cmass-status" class="cmass-status">Loading the governed reference decision…</div>
+          <div id="cmass-kpis" class="cmass-kpis"></div>
+          <div class="cmass-facility-grid" id="cmass-facilities"></div>
+        </div>
+        <aside class="panel cmass-side">
+          <div class="side-heading"><span>DECISION AUTHORIZATION</span><b id="cmass-gate">—</b></div>
+          <div id="cmass-checks"></div>
+          <div class="divider"></div>
+          <div class="side-heading"><span>EVIDENCE BOUNDARY</span><b>bounded claims</b></div>
+          <div id="cmass-boundary"></div>
+        </aside>
+      </div>
+      <div class="panel table-panel cmass-scenarios"><div class="panel-label">UNCERTAINTY SET · SCENARIO MASS BALANCE</div><div id="cmass-scenario-table"></div></div>
+    </section>
+
+    <section id="trace-view" class="view">
+      <div class="view-title">
+        <div><p class="eyebrow">DECISION PROVENANCE</p><h1>Eleven stages, one readable chain.</h1></div>
+        <p>Select a stage to inspect its role, evidence class and output. Raw payloads are kept behind the inspector instead of squeezed into eleven columns.</p>
+      </div>
+      <div class="trace-layout-v12">
+        <div class="panel trace-list" id="trace-list"></div>
+        <aside class="panel trace-inspector" id="trace-inspector"></aside>
+      </div>
+      <div class="panel integration-panel"><div class="panel-label">COUPLING CONTRACT</div><div id="coupling-contract"></div></div>
+    </section>
+
+    <section id="runs-view" class="view">
+      <div class="view-title">
+        <div><p class="eyebrow">ENTERPRISE RUN REGISTRY</p><h1>A decision experiment should be rerunnable and inspectable.</h1></div>
+        <p>Run records preserve scenario configuration, runtime provenance, code fingerprint and decision hash. Full runs can take around a minute on the local Windows target.</p>
+      </div>
+      <div class="panel run-composer-v12">
+        <label>Run name<input id="run-name" value="Portfolio decision experiment"></label>
+        <label>Seed<input id="run-seed" type="number" value="20260817"></label>
+        <label>Raw futures<input id="run-raw" type="number" value="24" min="20" max="500"></label>
+        <label>Reduced<input id="run-reduced" type="number" value="4" min="3" max="40"></label>
+        <button id="run-execute">EXECUTE + REGISTER</button>
+      </div>
+      <div id="run-status" class="run-status-v12">Registry ready. No run launched in this browser session.</div>
+      <div class="panel table-panel"><div class="panel-label">PERSISTED RUNS · CLICK A ROW TO INSPECT</div><div id="run-table"></div></div>
+      <div class="panel run-report-panel">
+        <div class="panel-label">RUN REPORT</div>
+        <div id="run-report" class="run-report-empty">Select a persisted run to inspect its scenario, decision, provenance and runtime evidence.</div>
+      </div>
+    </section>
+
+    <section id="evidence-view" class="view">
+      <div class="view-title">
+        <div><p class="eyebrow">ENGINEERING EVIDENCE</p><h1>The math should be visible enough to interrogate.</h1></div>
+        <p>Model size, solver class, verification route, integration status and known boundaries are exposed here instead of buried in documentation.</p>
+      </div>
+      <div class="evidence-grid-v12">
+        <div class="panel"><div class="panel-label">MATHEMATICAL MODEL INVENTORY</div><div id="math-inventory"></div></div>
+        <aside class="panel evidence-side">
+          <div class="side-heading"><span>KNOWN MODEL BOUNDARIES</span><b>not hidden</b></div>
+          <div id="model-boundaries"></div>
+          <div class="divider"></div>
+          <div class="side-heading"><span>ACCEPTANCE STATE</span><b>Windows + locked core</b></div>
+          <div class="evidence-callout good">Phase 1–10 computational core accepted on Windows.</div>
+          <div class="evidence-callout good">Licensed Gurobi hierarchical multi-objective pass accepted.</div>
+          <div class="evidence-callout pending">External lifecycle calibration and realized operational benefits remain pending.</div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</div>
+<script type="module" src="/app.js"></script>
+</body>
+</html>

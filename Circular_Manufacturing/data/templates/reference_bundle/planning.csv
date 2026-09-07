@@ -1,0 +1,5 @@
+period,demand_packs,regular_capacity_packs,overtime_capacity_packs
+1,2200,2250,180
+2,2350,2380,220
+3,2500,2520,250
+4,2650,2630,300

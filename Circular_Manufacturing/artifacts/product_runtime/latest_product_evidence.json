@@ -1,0 +1,712 @@
+{
+  "algorithm": "CIRCULAR-MASS",
+  "counterfactual": {
+    "actions": [
+      {
+        "Facility": "Hydro-North",
+        "Open": "YES",
+        "Recovery route": "500,000 kg"
+      },
+      {
+        "Facility": "Direct-Midwest",
+        "Open": "YES",
+        "Recovery route": "360,000 kg"
+      },
+      {
+        "Facility": "Pyro-East",
+        "Open": "YES",
+        "Recovery route": "241,379 kg"
+      }
+    ],
+    "baselines": [
+      [
+        "Virgin-only objective",
+        "3,078,000.0000"
+      ],
+      [
+        "Average-yield objective",
+        "2,993,100.0000"
+      ],
+      [
+        "Reference shortage CVaR",
+        "0.0000"
+      ]
+    ],
+    "checks": {
+      "cvar_variables_reported": true,
+      "mass_balance_feasible": true,
+      "objective_reconciles": true,
+      "recycled_content_policy_met": true,
+      "service_shortage_zero": true,
+      "solver_optimal": true,
+      "validation_artifact_passed": true,
+      "validation_artifact_present": true
+    },
+    "claim": "Optimization is eligible for engineer review; no autonomous facility or sourcing action is issued. Reference scenarios have zero optimized shortage, so the CVaR shortage term is inactive in this run. Its formulation remains explicit and must be stress-tested under shortage-producing conditions before a tail-risk claim is promoted.",
+    "decision_id": "CMASS-A37A3598C99F6D4A",
+    "diagnostics": {
+      "effective_solver_backend": "gurobi",
+      "eta_domain": "R",
+      "expected_demand_kg": 1026000.0,
+      "integrality_verified": true,
+      "loss_definition": "scenario shortage kg; CVaR is applied to shortage only",
+      "message": "Gurobi (13, 0, 3) status=2",
+      "objective_reconciliation_error": 4.656612873077393e-10,
+      "requested_solver_backend": "gurobi",
+      "solver_name": "gurobi",
+      "success": true,
+      "surplus_definition": "scenario recovery output not consumed by demand; explicitly spilled/held out of recycled-content numerator"
+    },
+    "gate": "AUTHORIZED",
+    "metrics": [
+      [
+        "Recovered material",
+        "902,559 kg"
+      ],
+      [
+        "Recycled content",
+        "88.0%"
+      ],
+      [
+        "Expected shortage",
+        "0.00 kg"
+      ],
+      [
+        "Shortage CVaR",
+        "0.00 kg"
+      ],
+      [
+        "Objective",
+        "3,234,910"
+      ],
+      [
+        "Solver",
+        "gurobi"
+      ],
+      [
+        "Solver runtime",
+        "0.008 s"
+      ]
+    ],
+    "objective_components": {
+      "cvar_risk_premium": 0.0,
+      "expected_shortage_cost": 0.0,
+      "expected_surplus_handling_cost": 0.0,
+      "expected_virgin_cost": 370324.1379310342,
+      "facility_fixed_cost": 575000.0,
+      "recovery_variable_cost": 2289586.206896552
+    },
+    "raw": {
+      "algorithm": "CIRCULAR-MASS",
+      "authorization": {
+        "autonomous_execution": false,
+        "required_before_release": [
+          "verify source data lineage",
+          "review binding constraints",
+          "approve facility/sourcing action"
+        ],
+        "review_owner": "qualified circular-manufacturing engineer",
+        "status": "AUTHORIZED"
+      },
+      "checks": {
+        "cvar_variables_reported": true,
+        "mass_balance_feasible": true,
+        "objective_reconciles": true,
+        "recycled_content_policy_met": true,
+        "service_shortage_zero": true,
+        "solver_optimal": true,
+        "validation_artifact_passed": true,
+        "validation_artifact_present": true
+      },
+      "claim_boundary": "Synthetic optimized decision evidence only; no field-calibrated recovery yield, environmental benefit, financial benefit, or realized operational outcome is claimed.",
+      "decision_gate": "AUTHORIZED",
+      "decision_id": "CMASS-A37A3598C99F6D4A",
+      "decision_object": "first-stage recovery routing and facility activation with scenario-wise virgin/shortage recourse",
+      "evidence": {
+        "class": "DETERMINISTIC SYNTHETIC FORMULATION VALIDATION",
+        "field_calibration": "PENDING",
+        "realized_operational_benefits": "NOT CLAIMED",
+        "reference_artifact": "artifacts/circular_mass/evidence.json",
+        "reference_checks": {
+          "cvar_consistent": true,
+          "feasible": true,
+          "fine_tail_excess_active": true,
+          "objective_reconciles": true,
+          "optimal": true,
+          "recycled_content_met": true,
+          "sensitivity_grid_complete": true,
+          "stress_cvar_active": true,
+          "stress_shortage_positive": true,
+          "virgin_only_ablation_uses_less_recovery": true
+        }
+      },
+      "facility_actions": [
+        {
+          "facility": "Hydro-North",
+          "open": true,
+          "route_kg": 500000.00000000023
+        },
+        {
+          "facility": "Direct-Midwest",
+          "open": true,
+          "route_kg": 360000.0
+        },
+        {
+          "facility": "Pyro-East",
+          "open": true,
+          "route_kg": 241379.3103448274
+        }
+      ],
+      "human_review_required": true,
+      "operator_message": "Optimization is eligible for engineer review; no autonomous facility or sourcing action is issued.",
+      "requested_policy": {
+        "max_virgin_share": 0.55,
+        "min_recycled_content": 0.65,
+        "risk_aversion": 0.75
+      },
+      "scenario_probabilities": {
+        "nominal": 0.55,
+        "severe": 0.2,
+        "yield-down": 0.25
+      },
+      "solution": {
+        "alpha": 0.9,
+        "best_bound": 3234910.3448275863,
+        "constraint_count": 12,
+        "cvar_shortage_kg": 0.0,
+        "diagnostics": {
+          "effective_solver_backend": "gurobi",
+          "eta_domain": "R",
+          "expected_demand_kg": 1026000.0,
+          "integrality_verified": true,
+          "loss_definition": "scenario shortage kg; CVaR is applied to shortage only",
+          "message": "Gurobi (13, 0, 3) status=2",
+          "objective_reconciliation_error": 4.656612873077393e-10,
+          "requested_solver_backend": "gurobi",
+          "solver_name": "gurobi",
+          "success": true,
+          "surplus_definition": "scenario recovery output not consumed by demand; explicitly spilled/held out of recycled-content numerator"
+        },
+        "eta": 0.0,
+        "expected_recovered_kg": 902558.6206896552,
+        "expected_shortage_kg": 0.0,
+        "max_constraint_violation": 2.3283064365386963e-10,
+        "mip_gap": 0.0,
+        "objective": 3234910.3448275863,
+        "objective_components": {
+          "cvar_risk_premium": 0.0,
+          "expected_shortage_cost": 0.0,
+          "expected_surplus_handling_cost": 0.0,
+          "expected_virgin_cost": 370324.1379310342,
+          "facility_fixed_cost": 575000.0,
+          "recovery_variable_cost": 2289586.206896552
+        },
+        "open_facilities": {
+          "Direct-Midwest": 1,
+          "Hydro-North": 1,
+          "Pyro-East": 1
+        },
+        "recycled_content_share": 0.8796867648047322,
+        "routed_kg": {
+          "Direct-Midwest": 360000.0,
+          "Hydro-North": 500000.00000000023,
+          "Pyro-East": 241379.3103448274
+        },
+        "runtime_seconds": 0.00800013542175293,
+        "scenario_details": [
+          {
+            "cvar_excess_kg": 0.0,
+            "demand_kg": 1000000.0,
+            "loss_kg": 0.0,
+            "name": "nominal",
+            "probability": 0.55,
+            "recovered_kg": 999758.6206896552,
+            "recovery_output_kg": 999758.6206896552,
+            "recycled_content_share": 0.9997586206896552,
+            "shortage_kg": 0.0,
+            "surplus_kg": 0.0,
+            "virgin_kg": 241.3793103446951,
+            "yields": [
+              0.91,
+              0.95,
+              0.84
+            ]
+          },
+          {
+            "cvar_excess_kg": 0.0,
+            "demand_kg": 1040000.0,
+            "loss_kg": 0.0,
+            "name": "yield-down",
+            "probability": 0.25,
+            "recovered_kg": 849165.5172413794,
+            "recovery_output_kg": 849165.5172413794,
+            "recycled_content_share": 0.8165053050397878,
+            "shortage_kg": 0.0,
+            "surplus_kg": 0.0,
+            "virgin_kg": 190834.48275862055,
+            "yields": [
+              0.77,
+              0.82,
+              0.7
+            ]
+          },
+          {
+            "cvar_excess_kg": 0.0,
+            "demand_kg": 1080000.0,
+            "loss_kg": 0.0,
+            "name": "severe",
+            "probability": 0.2,
+            "recovered_kg": 702000.0,
+            "recovery_output_kg": 702000.0,
+            "recycled_content_share": 0.65,
+            "shortage_kg": 0.0,
+            "surplus_kg": 0.0,
+            "virgin_kg": 378000.0,
+            "yields": [
+              0.62,
+              0.7,
+              0.58
+            ]
+          }
+        ],
+        "shortage_kg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "solver": "gurobi",
+        "status": "OPTIMAL",
+        "surplus_kg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "variable_count": 19,
+        "virgin_kg": [
+          241.3793103446951,
+          190834.48275862055,
+          378000.0
+        ]
+      },
+      "tail_risk_note": "Reference scenarios have zero optimized shortage, so the CVaR shortage term is inactive in this run. Its formulation remains explicit and must be stress-tested under shortage-producing conditions before a tail-risk claim is promoted."
+    },
+    "scenario_details": [
+      {
+        "cvar_excess_kg": 0.0,
+        "demand_kg": 1000000.0,
+        "loss_kg": 0.0,
+        "name": "nominal",
+        "probability": 0.55,
+        "recovered_kg": 999758.6206896552,
+        "recovery_output_kg": 999758.6206896552,
+        "recycled_content_share": 0.9997586206896552,
+        "shortage_kg": 0.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 241.3793103446951,
+        "yields": [
+          0.91,
+          0.95,
+          0.84
+        ]
+      },
+      {
+        "cvar_excess_kg": 0.0,
+        "demand_kg": 1040000.0,
+        "loss_kg": 0.0,
+        "name": "yield-down",
+        "probability": 0.25,
+        "recovered_kg": 849165.5172413794,
+        "recovery_output_kg": 849165.5172413794,
+        "recycled_content_share": 0.8165053050397878,
+        "shortage_kg": 0.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 190834.48275862055,
+        "yields": [
+          0.77,
+          0.82,
+          0.7
+        ]
+      },
+      {
+        "cvar_excess_kg": 0.0,
+        "demand_kg": 1080000.0,
+        "loss_kg": 0.0,
+        "name": "severe",
+        "probability": 0.2,
+        "recovered_kg": 702000.0,
+        "recovery_output_kg": 702000.0,
+        "recycled_content_share": 0.65,
+        "shortage_kg": 0.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 378000.0,
+        "yields": [
+          0.62,
+          0.7,
+          0.58
+        ]
+      }
+    ]
+  },
+  "decision": {
+    "actions": [
+      {
+        "Facility": "Hydro-North",
+        "Open": "YES",
+        "Recovery route": "500,000 kg"
+      },
+      {
+        "Facility": "Direct-Midwest",
+        "Open": "YES",
+        "Recovery route": "360,000 kg"
+      },
+      {
+        "Facility": "Pyro-East",
+        "Open": "NO",
+        "Recovery route": "0 kg"
+      }
+    ],
+    "baselines": [
+      [
+        "Virgin-only objective",
+        "3,078,000.0000"
+      ],
+      [
+        "Average-yield objective",
+        "2,993,100.0000"
+      ],
+      [
+        "Reference shortage CVaR",
+        "0.0000"
+      ]
+    ],
+    "checks": {
+      "cvar_variables_reported": true,
+      "mass_balance_feasible": true,
+      "objective_reconciles": true,
+      "recycled_content_policy_met": true,
+      "service_shortage_zero": true,
+      "solver_optimal": true,
+      "validation_artifact_passed": true,
+      "validation_artifact_present": true
+    },
+    "claim": "Optimization is eligible for engineer review; no autonomous facility or sourcing action is issued. Reference scenarios have zero optimized shortage, so the CVaR shortage term is inactive in this run. Its formulation remains explicit and must be stress-tested under shortage-producing conditions before a tail-risk claim is promoted.",
+    "decision_id": "CMASS-CD001EAE18A7D3B4",
+    "diagnostics": {
+      "effective_solver_backend": "gurobi",
+      "eta_domain": "R",
+      "expected_demand_kg": 1026000.0,
+      "integrality_verified": true,
+      "loss_definition": "scenario shortage kg; CVaR is applied to shortage only",
+      "message": "Gurobi (13, 0, 3) status=2",
+      "objective_reconciliation_error": 0.0,
+      "requested_solver_backend": "gurobi",
+      "solver_name": "gurobi",
+      "success": true,
+      "surplus_definition": "scenario recovery output not consumed by demand; explicitly spilled/held out of recycled-content numerator"
+    },
+    "gate": "AUTHORIZED",
+    "metrics": [
+      [
+        "Recovered material",
+        "720,800 kg"
+      ],
+      [
+        "Recycled content",
+        "70.3%"
+      ],
+      [
+        "Expected shortage",
+        "0.00 kg"
+      ],
+      [
+        "Shortage CVaR",
+        "0.00 kg"
+      ],
+      [
+        "Objective",
+        "2,997,600"
+      ],
+      [
+        "Solver",
+        "gurobi"
+      ],
+      [
+        "Solver runtime",
+        "0.348 s"
+      ]
+    ],
+    "objective_components": {
+      "cvar_risk_premium": 0.0,
+      "expected_shortage_cost": 0.0,
+      "expected_surplus_handling_cost": 0.0,
+      "expected_virgin_cost": 915600.0,
+      "facility_fixed_cost": 420000.0,
+      "recovery_variable_cost": 1662000.0
+    },
+    "raw": {
+      "algorithm": "CIRCULAR-MASS",
+      "authorization": {
+        "autonomous_execution": false,
+        "required_before_release": [
+          "verify source data lineage",
+          "review binding constraints",
+          "approve facility/sourcing action"
+        ],
+        "review_owner": "qualified circular-manufacturing engineer",
+        "status": "AUTHORIZED"
+      },
+      "checks": {
+        "cvar_variables_reported": true,
+        "mass_balance_feasible": true,
+        "objective_reconciles": true,
+        "recycled_content_policy_met": true,
+        "service_shortage_zero": true,
+        "solver_optimal": true,
+        "validation_artifact_passed": true,
+        "validation_artifact_present": true
+      },
+      "claim_boundary": "Synthetic optimized decision evidence only; no field-calibrated recovery yield, environmental benefit, financial benefit, or realized operational outcome is claimed.",
+      "decision_gate": "AUTHORIZED",
+      "decision_id": "CMASS-CD001EAE18A7D3B4",
+      "decision_object": "first-stage recovery routing and facility activation with scenario-wise virgin/shortage recourse",
+      "evidence": {
+        "class": "DETERMINISTIC SYNTHETIC FORMULATION VALIDATION",
+        "field_calibration": "PENDING",
+        "realized_operational_benefits": "NOT CLAIMED",
+        "reference_artifact": "artifacts/circular_mass/evidence.json",
+        "reference_checks": {
+          "cvar_consistent": true,
+          "feasible": true,
+          "fine_tail_excess_active": true,
+          "objective_reconciles": true,
+          "optimal": true,
+          "recycled_content_met": true,
+          "sensitivity_grid_complete": true,
+          "stress_cvar_active": true,
+          "stress_shortage_positive": true,
+          "virgin_only_ablation_uses_less_recovery": true
+        }
+      },
+      "facility_actions": [
+        {
+          "facility": "Hydro-North",
+          "open": true,
+          "route_kg": 500000.0
+        },
+        {
+          "facility": "Direct-Midwest",
+          "open": true,
+          "route_kg": 360000.0
+        },
+        {
+          "facility": "Pyro-East",
+          "open": false,
+          "route_kg": 0.0
+        }
+      ],
+      "human_review_required": true,
+      "operator_message": "Optimization is eligible for engineer review; no autonomous facility or sourcing action is issued.",
+      "requested_policy": {
+        "max_virgin_share": 0.72,
+        "min_recycled_content": 0.2,
+        "risk_aversion": 0.35
+      },
+      "scenario_probabilities": {
+        "nominal": 0.55,
+        "severe": 0.2,
+        "yield-down": 0.25
+      },
+      "solution": {
+        "alpha": 0.9,
+        "best_bound": 2997600.0,
+        "constraint_count": 12,
+        "cvar_shortage_kg": 0.0,
+        "diagnostics": {
+          "effective_solver_backend": "gurobi",
+          "eta_domain": "R",
+          "expected_demand_kg": 1026000.0,
+          "integrality_verified": true,
+          "loss_definition": "scenario shortage kg; CVaR is applied to shortage only",
+          "message": "Gurobi (13, 0, 3) status=2",
+          "objective_reconciliation_error": 0.0,
+          "requested_solver_backend": "gurobi",
+          "solver_name": "gurobi",
+          "success": true,
+          "surplus_definition": "scenario recovery output not consumed by demand; explicitly spilled/held out of recycled-content numerator"
+        },
+        "eta": 0.0,
+        "expected_recovered_kg": 720800.0,
+        "expected_shortage_kg": 0.0,
+        "max_constraint_violation": 0.0,
+        "mip_gap": 0.0,
+        "objective": 2997600.0,
+        "objective_components": {
+          "cvar_risk_premium": 0.0,
+          "expected_shortage_cost": 0.0,
+          "expected_surplus_handling_cost": 0.0,
+          "expected_virgin_cost": 915600.0,
+          "facility_fixed_cost": 420000.0,
+          "recovery_variable_cost": 1662000.0
+        },
+        "open_facilities": {
+          "Direct-Midwest": 1,
+          "Hydro-North": 1,
+          "Pyro-East": 0
+        },
+        "recycled_content_share": 0.7025341130604289,
+        "routed_kg": {
+          "Direct-Midwest": 360000.0,
+          "Hydro-North": 500000.0,
+          "Pyro-East": 0.0
+        },
+        "runtime_seconds": 0.34800004959106445,
+        "scenario_details": [
+          {
+            "cvar_excess_kg": 0.0,
+            "demand_kg": 1000000.0,
+            "loss_kg": 0.0,
+            "name": "nominal",
+            "probability": 0.55,
+            "recovered_kg": 797000.0,
+            "recovery_output_kg": 797000.0,
+            "recycled_content_share": 0.797,
+            "shortage_kg": 0.0,
+            "surplus_kg": 0.0,
+            "virgin_kg": 203000.0,
+            "yields": [
+              0.91,
+              0.95,
+              0.84
+            ]
+          },
+          {
+            "cvar_excess_kg": 0.0,
+            "demand_kg": 1040000.0,
+            "loss_kg": 0.0,
+            "name": "yield-down",
+            "probability": 0.25,
+            "recovered_kg": 680200.0,
+            "recovery_output_kg": 680200.0,
+            "recycled_content_share": 0.6540384615384616,
+            "shortage_kg": 0.0,
+            "surplus_kg": 0.0,
+            "virgin_kg": 359800.0,
+            "yields": [
+              0.77,
+              0.82,
+              0.7
+            ]
+          },
+          {
+            "cvar_excess_kg": 0.0,
+            "demand_kg": 1080000.0,
+            "loss_kg": 0.0,
+            "name": "severe",
+            "probability": 0.2,
+            "recovered_kg": 562000.0,
+            "recovery_output_kg": 562000.0,
+            "recycled_content_share": 0.5203703703703704,
+            "shortage_kg": 0.0,
+            "surplus_kg": 0.0,
+            "virgin_kg": 518000.0,
+            "yields": [
+              0.62,
+              0.7,
+              0.58
+            ]
+          }
+        ],
+        "shortage_kg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "solver": "gurobi",
+        "status": "OPTIMAL",
+        "surplus_kg": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "variable_count": 19,
+        "virgin_kg": [
+          203000.0,
+          359800.0,
+          518000.0
+        ]
+      },
+      "tail_risk_note": "Reference scenarios have zero optimized shortage, so the CVaR shortage term is inactive in this run. Its formulation remains explicit and must be stress-tested under shortage-producing conditions before a tail-risk claim is promoted."
+    },
+    "scenario_details": [
+      {
+        "cvar_excess_kg": 0.0,
+        "demand_kg": 1000000.0,
+        "loss_kg": 0.0,
+        "name": "nominal",
+        "probability": 0.55,
+        "recovered_kg": 797000.0,
+        "recovery_output_kg": 797000.0,
+        "recycled_content_share": 0.797,
+        "shortage_kg": 0.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 203000.0,
+        "yields": [
+          0.91,
+          0.95,
+          0.84
+        ]
+      },
+      {
+        "cvar_excess_kg": 0.0,
+        "demand_kg": 1040000.0,
+        "loss_kg": 0.0,
+        "name": "yield-down",
+        "probability": 0.25,
+        "recovered_kg": 680200.0,
+        "recovery_output_kg": 680200.0,
+        "recycled_content_share": 0.6540384615384616,
+        "shortage_kg": 0.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 359800.0,
+        "yields": [
+          0.77,
+          0.82,
+          0.7
+        ]
+      },
+      {
+        "cvar_excess_kg": 0.0,
+        "demand_kg": 1080000.0,
+        "loss_kg": 0.0,
+        "name": "severe",
+        "probability": 0.2,
+        "recovered_kg": 562000.0,
+        "recovery_output_kg": 562000.0,
+        "recycled_content_share": 0.5203703703703704,
+        "shortage_kg": 0.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 518000.0,
+        "yields": [
+          0.62,
+          0.7,
+          0.58
+        ]
+      }
+    ]
+  },
+  "evidence_boundary": "Optimization is eligible for engineer review; no autonomous facility or sourcing action is issued. Reference scenarios have zero optimized shortage, so the CVaR shortage term is inactive in this run. Its formulation remains explicit and must be stress-tested under shortage-producing conditions before a tail-risk claim is promoted.",
+  "mode": "DETERMINISTIC_PORTFOLIO_DEMO",
+  "parameters": {
+    "max_virgin_share": 0.72,
+    "min_recycled_content": 0.2,
+    "risk_aversion": 0.35
+  },
+  "project": "Circular Manufacturing \u2014 Closed-Loop Material Network Planner",
+  "runtime_contract": "interactive deterministic decision surface over repository-native signature algorithm",
+  "volatile_fields_excluded_from_decision_id": [
+    "runtime_seconds",
+    "best_bound",
+    "mip_gap",
+    "diagnostics"
+  ]
+}

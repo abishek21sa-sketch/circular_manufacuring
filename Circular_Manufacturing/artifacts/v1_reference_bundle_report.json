@@ -1,0 +1,451 @@
+{
+  "bundle": {
+    "directory": "/mnt/data/Circular-Manufacturing-V1/data/templates/reference_bundle",
+    "manifest": {
+      "name": "NMC-811-V1-REFERENCE",
+      "manufacturing_scrap_rate": 0.045,
+      "max_recycled_content": 0.6,
+      "remanufacture_material_retention": 0.93,
+      "evidence_class": "SYNTHETIC VALIDATION",
+      "reverse_logistics": {
+        "collection_rate": 0.88,
+        "max_disposal_share": 0.2
+      },
+      "planning": {
+        "initial_finished_goods_packs": 110,
+        "initial_recovered_inventory_kg": 45000,
+        "safety_stock_fraction_next_period": 0.05,
+        "min_recycled_content": 0.15
+      },
+      "recovery_grades": {
+        "A": {
+          "second_life": 0.55,
+          "remanufacture": 0.3,
+          "recycle": 0.13,
+          "disposal": 0.02
+        },
+        "B": {
+          "second_life": 0.15,
+          "remanufacture": 0.35,
+          "recycle": 0.45,
+          "disposal": 0.05
+        },
+        "C": {
+          "second_life": 0.02,
+          "remanufacture": 0.08,
+          "recycle": 0.78,
+          "disposal": 0.12
+        }
+      }
+    },
+    "files": [
+      "manifest.json",
+      "materials.csv",
+      "periods.csv",
+      "collections.csv",
+      "facilities.csv",
+      "planning.csv"
+    ],
+    "bundle_hash_sha256": "7d9a9348e62fd20925cc21ed16327b597e9455068c528b3dc5f35dbef8462ea4",
+    "evidence_class": "SYNTHETIC VALIDATION"
+  },
+  "lifecycle": {
+    "design": {
+      "name": "NMC-811-V1-REFERENCE",
+      "pack_mass_kg": 400.0,
+      "materials": [
+        {
+          "name": "lithium",
+          "kg_per_pack": 8.0,
+          "virgin_cost_per_kg": 18.0,
+          "recycled_cost_per_kg": 11.0,
+          "virgin_kgco2e_per_kg": 15.0,
+          "recycled_kgco2e_per_kg": 4.5,
+          "recycling_yield": 0.92,
+          "critical": true
+        },
+        {
+          "name": "nickel",
+          "kg_per_pack": 32.0,
+          "virgin_cost_per_kg": 16.0,
+          "recycled_cost_per_kg": 9.0,
+          "virgin_kgco2e_per_kg": 9.0,
+          "recycled_kgco2e_per_kg": 3.0,
+          "recycling_yield": 0.94,
+          "critical": true
+        },
+        {
+          "name": "cobalt",
+          "kg_per_pack": 8.0,
+          "virgin_cost_per_kg": 34.0,
+          "recycled_cost_per_kg": 20.0,
+          "virgin_kgco2e_per_kg": 22.0,
+          "recycled_kgco2e_per_kg": 6.5,
+          "recycling_yield": 0.95,
+          "critical": true
+        },
+        {
+          "name": "graphite",
+          "kg_per_pack": 45.0,
+          "virgin_cost_per_kg": 5.0,
+          "recycled_cost_per_kg": 3.0,
+          "virgin_kgco2e_per_kg": 5.0,
+          "recycled_kgco2e_per_kg": 2.0,
+          "recycling_yield": 0.88,
+          "critical": true
+        },
+        {
+          "name": "aluminum",
+          "kg_per_pack": 55.0,
+          "virgin_cost_per_kg": 3.1,
+          "recycled_cost_per_kg": 1.9,
+          "virgin_kgco2e_per_kg": 10.0,
+          "recycled_kgco2e_per_kg": 2.0,
+          "recycling_yield": 0.96,
+          "critical": false
+        },
+        {
+          "name": "copper",
+          "kg_per_pack": 30.0,
+          "virgin_cost_per_kg": 9.0,
+          "recycled_cost_per_kg": 6.0,
+          "virgin_kgco2e_per_kg": 4.0,
+          "recycled_kgco2e_per_kg": 1.5,
+          "recycling_yield": 0.97,
+          "critical": false
+        },
+        {
+          "name": "other",
+          "kg_per_pack": 222.0,
+          "virgin_cost_per_kg": 2.0,
+          "recycled_cost_per_kg": 1.6,
+          "virgin_kgco2e_per_kg": 3.0,
+          "recycled_kgco2e_per_kg": 2.0,
+          "recycling_yield": 0.7,
+          "critical": false
+        }
+      ]
+    },
+    "circularity_metrics": {
+      "material_productivity": 0.9549999999999998,
+      "manufacturing_scrap_rate": 0.045000000000000054,
+      "collection_efficiency": 0.8705540166204986,
+      "technical_recovery_rate": 0.6491481970945223,
+      "circular_pathway_rate": 0.7230298058196553,
+      "landfill_or_loss_rate": 0.27697019418034485,
+      "critical_material_recovery_rate": 0.612692189466214,
+      "evidence_class": "CALCULATED FROM SYNTHETIC LIFECYCLE STATE"
+    },
+    "pathway_economics": {
+      "recovered_mass_kg": 816031.2156035819,
+      "modeled_material_cost_avoidance": 1605973.511791111,
+      "modeled_gwp_avoidance_kgco2e": 2792635.5689423736,
+      "evidence_class": "MODELED COMPARATIVE IMPACT; NOT REALIZED BENEFIT"
+    },
+    "lifecycle_impact": {
+      "functional_unit": "material recovered across synthetic planning horizon",
+      "system_boundary": "material production comparison for recovered secondary feed; transport/process logistics reported separately",
+      "material_rows": [
+        {
+          "material": "lithium",
+          "critical": true,
+          "circular_output_kg": 17823.676847807998,
+          "virgin_equivalent_cost": 320826.18326054397,
+          "circular_material_cost": 196060.44532588797,
+          "modeled_cost_difference": 124765.737934656,
+          "virgin_equivalent_kgco2e": 267355.15271711996,
+          "circular_kgco2e": 80206.54581513599,
+          "modeled_gwp_difference_kgco2e": 187148.60690198396
+        },
+        {
+          "material": "nickel",
+          "critical": true,
+          "circular_output_kg": 72338.947103424,
+          "virgin_equivalent_cost": 1157423.153654784,
+          "circular_material_cost": 651050.523930816,
+          "modeled_cost_difference": 506372.629723968,
+          "virgin_equivalent_kgco2e": 651050.523930816,
+          "circular_kgco2e": 217016.841310272,
+          "modeled_gwp_difference_kgco2e": 434033.682620544
+        },
+        {
+          "material": "cobalt",
+          "critical": true,
+          "circular_output_kg": 18215.266739879997,
+          "virgin_equivalent_cost": 619319.0691559198,
+          "circular_material_cost": 364305.33479759993,
+          "modeled_cost_difference": 255013.7343583199,
+          "virgin_equivalent_kgco2e": 400735.8682773599,
+          "circular_kgco2e": 118399.23380921998,
+          "modeled_gwp_difference_kgco2e": 282336.63446813996
+        },
+        {
+          "material": "graphite",
+          "critical": true,
+          "circular_output_kg": 97321.25807838,
+          "virgin_equivalent_cost": 486606.2903919,
+          "circular_material_cost": 291963.77423513995,
+          "modeled_cost_difference": 194642.51615676004,
+          "virgin_equivalent_kgco2e": 486606.2903919,
+          "circular_kgco2e": 194642.51615676,
+          "modeled_gwp_difference_kgco2e": 291963.77423514
+        },
+        {
+          "material": "aluminum",
+          "critical": false,
+          "circular_output_kg": 126127.35233934,
+          "virgin_equivalent_cost": 390994.792251954,
+          "circular_material_cost": 239641.96944474598,
+          "modeled_cost_difference": 151352.822807208,
+          "virgin_equivalent_kgco2e": 1261273.5233934,
+          "circular_kgco2e": 252254.70467868,
+          "modeled_gwp_difference_kgco2e": 1009018.81871472
+        },
+        {
+          "material": "copper",
+          "critical": false,
+          "circular_output_kg": 69286.22500472999,
+          "virgin_equivalent_cost": 623576.02504257,
+          "circular_material_cost": 415717.35002837994,
+          "modeled_cost_difference": 207858.67501419003,
+          "virgin_equivalent_kgco2e": 277144.90001891996,
+          "circular_kgco2e": 103929.33750709498,
+          "modeled_gwp_difference_kgco2e": 173215.56251182497
+        },
+        {
+          "material": "other",
+          "critical": false,
+          "circular_output_kg": 414918.48949002,
+          "virgin_equivalent_cost": 829836.97898004,
+          "circular_material_cost": 663869.583184032,
+          "modeled_cost_difference": 165967.39579600794,
+          "virgin_equivalent_kgco2e": 1244755.4684700598,
+          "circular_kgco2e": 829836.97898004,
+          "modeled_gwp_difference_kgco2e": 414918.48949001986
+        }
+      ],
+      "modeled_total_cost_difference": 1605973.51179111,
+      "modeled_total_gwp_difference_kgco2e": 2792635.5689423727,
+      "evidence_class": "MODELED COMPARATIVE LIFECYCLE IMPACT; EXTERNAL FACTOR VALIDATION PENDING"
+    },
+    "max_material_balance_error_kg": 2.9103830456733704e-11
+  },
+  "reverse_logistics": {
+    "status": "OPTIMAL",
+    "objective_cost": 2138951.4089548313,
+    "transport_cost": 126045.80895483136,
+    "processing_cost": 1327657.6,
+    "fixed_cost": 580000.0,
+    "disposal_cost": 105248.0,
+    "transport_kgco2e": 8403.05393032209,
+    "processing_kgco2e": 1213237.6000000003,
+    "disposal_kgco2e": 121440.0,
+    "total_kgco2e": 1343080.6539303225,
+    "opened_facilities": {
+      "R-Chicago": 1,
+      "R-Ohio": 1,
+      "M-Detroit": 1,
+      "M-Indiana": 0
+    },
+    "flows": [
+      {
+        "collection": "Chicago",
+        "facility": "R-Chicago",
+        "pathway": "recycle",
+        "kg": 223776.0,
+        "distance_km": 46.09772228646444,
+        "transport_cost": 18568.01502427656,
+        "processing_cost": 525873.6,
+        "transport_kgco2e": 1237.867668285104,
+        "processing_kgco2e": 469929.60000000003
+      },
+      {
+        "collection": "Chicago",
+        "facility": "M-Detroit",
+        "pathway": "reman",
+        "kg": 22624.00000000003,
+        "distance_km": 398.81073205218536,
+        "transport_cost": 16240.849203507574,
+        "processing_cost": 32804.80000000004,
+        "transport_kgco2e": 1082.7232802338383,
+        "processing_kgco2e": 32804.80000000004
+      },
+      {
+        "collection": "Detroit",
+        "facility": "R-Ohio",
+        "pathway": "recycle",
+        "kg": 100848.0,
+        "distance_km": 210.05951537600004,
+        "transport_cost": 38131.34761194993,
+        "processing_cost": 226908.0,
+        "transport_kgco2e": 2542.089840796662,
+        "processing_kgco2e": 201696.0
+      },
+      {
+        "collection": "Detroit",
+        "facility": "M-Detroit",
+        "pathway": "reman",
+        "kg": 65472.0,
+        "distance_km": 21.213203435596427,
+        "transport_cost": 2499.9675396036646,
+        "processing_cost": 94934.4,
+        "transport_kgco2e": 166.6645026402443,
+        "processing_kgco2e": 94934.4
+      },
+      {
+        "collection": "Columbus",
+        "facility": "R-Ohio",
+        "pathway": "recycle",
+        "kg": 133056.0,
+        "distance_km": 39.05124837953327,
+        "transport_cost": 9352.80522789692,
+        "processing_cost": 299376.0,
+        "transport_kgco2e": 623.5203485264615,
+        "processing_kgco2e": 266112.0
+      },
+      {
+        "collection": "Columbus",
+        "facility": "M-Detroit",
+        "pathway": "reman",
+        "kg": 51744.00000000001,
+        "distance_km": 215.05813167606567,
+        "transport_cost": 20030.342337803417,
+        "processing_cost": 75028.8,
+        "transport_kgco2e": 1335.3561558535612,
+        "processing_kgco2e": 75028.8
+      },
+      {
+        "collection": "Indianapolis",
+        "facility": "M-Detroit",
+        "pathway": "reman",
+        "kg": 50160.0,
+        "distance_km": 235.05318547086316,
+        "transport_cost": 21222.48200979329,
+        "processing_cost": 72732.0,
+        "transport_kgco2e": 1414.8321339862196,
+        "processing_kgco2e": 72732.0
+      }
+    ],
+    "disposal_by_collection": {
+      "Chicago": 0.0,
+      "Detroit": 44880.0,
+      "Columbus": 0.0,
+      "Indianapolis": 117040.0
+    },
+    "collected_kg": 809600.0,
+    "processed_kg": 647680.0,
+    "disposed_kg": 161920.0,
+    "max_constraint_violation": 2.9103830456733704e-11,
+    "solver": "scipy.optimize.milp",
+    "mip_gap": 0.0
+  },
+  "planning": {
+    "solution": {
+      "status": "OPTIMAL",
+      "objective_cost": 27731951.23639255,
+      "total_regular_packs": 9590.0,
+      "total_overtime_packs": 0.0,
+      "total_shortage_packs": 0.0,
+      "service_level": 1.0,
+      "total_virgin_kg": 2964489.163642789,
+      "total_recovered_use_kg": 871510.8363572113,
+      "recycled_content_rate": 0.22719260593253685,
+      "avg_regular_capacity_utilization": 0.9809803366847374,
+      "max_constraint_violation": 0.0,
+      "period_rows": [
+        {
+          "period": 1,
+          "demand_packs": 2200.0,
+          "regular_packs": 2207.5,
+          "overtime_packs": 0.0,
+          "production_packs": 2207.5,
+          "shortage_packs": 0.0,
+          "closing_fg_inventory_packs": 117.5,
+          "virgin_kg": 674809.5932051847,
+          "recovered_use_kg": 208190.40679481535,
+          "closing_recovered_inventory_kg": 0.0,
+          "recycled_content_rate": 0.23577622513569121,
+          "regular_capacity_utilization": 0.9811111111111112,
+          "material_balance_error_kg": 0.0,
+          "recovered_inventory_balance_error_kg": 0.0,
+          "finished_goods_balance_error_packs": 0.0
+        },
+        {
+          "period": 2,
+          "demand_packs": 2350.0,
+          "regular_packs": 2357.5,
+          "overtime_packs": 0.0,
+          "production_packs": 2357.5,
+          "shortage_packs": 0.0,
+          "closing_fg_inventory_packs": 125.0,
+          "virgin_kg": 755189.2692703911,
+          "recovered_use_kg": 187810.7307296089,
+          "closing_recovered_inventory_kg": 0.0,
+          "recycled_content_rate": 0.19916302304306355,
+          "regular_capacity_utilization": 0.990546218487395,
+          "material_balance_error_kg": 0.0,
+          "recovered_inventory_balance_error_kg": 0.0,
+          "finished_goods_balance_error_packs": 0.0
+        },
+        {
+          "period": 3,
+          "demand_packs": 2500.0,
+          "regular_packs": 2507.5,
+          "overtime_packs": 0.0,
+          "production_packs": 2507.5,
+          "shortage_packs": 0.0,
+          "closing_fg_inventory_packs": 132.5,
+          "virgin_kg": 781997.3153101384,
+          "recovered_use_kg": 221002.68468986163,
+          "closing_recovered_inventory_kg": 0.0,
+          "recycled_content_rate": 0.22034165971072944,
+          "regular_capacity_utilization": 0.9950396825396826,
+          "material_balance_error_kg": 0.0,
+          "recovered_inventory_balance_error_kg": 0.0,
+          "finished_goods_balance_error_packs": 0.0
+        },
+        {
+          "period": 4,
+          "demand_packs": 2650.0,
+          "regular_packs": 2517.5,
+          "overtime_packs": 0.0,
+          "production_packs": 2517.5,
+          "shortage_packs": 0.0,
+          "closing_fg_inventory_packs": 0.0,
+          "virgin_kg": 752492.9858570745,
+          "recovered_use_kg": 254507.0141429255,
+          "closing_recovered_inventory_kg": 0.0,
+          "recycled_content_rate": 0.25273784919853576,
+          "regular_capacity_utilization": 0.9572243346007605,
+          "material_balance_error_kg": 0.0,
+          "recovered_inventory_balance_error_kg": 0.0,
+          "finished_goods_balance_error_packs": 0.0
+        }
+      ],
+      "solver": "scipy.optimize.linprog/HiGHS"
+    },
+    "ie_metrics": {
+      "service_level": 1.0,
+      "aggregate_capacity_utilization": 0.8937558247903076,
+      "regular_capacity_utilization": 0.9809803366847374,
+      "overtime_share": 0.0,
+      "average_finished_goods_inventory_packs": 93.75,
+      "average_recovered_inventory_kg": 0.0,
+      "ending_finished_goods_inventory_packs": 0.0,
+      "material_productivity_packs_per_tonne": 2.5,
+      "recycled_content_rate": 0.22719260593253685,
+      "virgin_material_dependency": 0.7728073940674632,
+      "evidence_class": "OPTIMIZED IE PLANNING METRICS ON SYNTHETIC BENCHMARK"
+    }
+  },
+  "integration": {
+    "network_capture_rate": 0.8,
+    "recovered_supply_to_planning_kg": [
+      163190.40679481535,
+      187810.7307296089,
+      221002.68468986163,
+      254507.0141429255
+    ]
+  },
+  "claims_boundary": "User-supplied data are processed as provided; ingestion validates schema/physics but does not independently verify source truth."
+}

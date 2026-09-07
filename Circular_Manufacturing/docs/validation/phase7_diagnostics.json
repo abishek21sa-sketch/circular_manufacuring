@@ -1,0 +1,21 @@
+{
+  "phase": "PHASE-7-CUMULATIVE",
+  "passed": true,
+  "checks": {
+    "phase5_material_closure": true,
+    "phase6_network_closure": true,
+    "recovered_supply_connected": true,
+    "planning_optimal": true,
+    "planning_constraint_audit": true,
+    "service_level_physical": true,
+    "reference_service_target": true,
+    "recycled_content_physical": true,
+    "ie_metrics_present": true,
+    "synthetic_label": true
+  },
+  "service_level": 1.0,
+  "recycled_content_rate": 0.22719260593253685,
+  "virgin_kg": 2964489.163642789,
+  "recovered_use_kg": 871510.8363572113,
+  "max_planning_violation": 0.0
+}

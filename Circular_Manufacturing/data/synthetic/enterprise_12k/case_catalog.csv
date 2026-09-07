@@ -1,0 +1,13 @@
+case_type,description,expected_behavior
+baseline,"Nominal demand, quality, capacity, recovery and transport conditions.",bounded_complete_rows
+seasonal_peak,Seasonal demand peak with higher throughput and moderate capacity pressure.,bounded_complete_rows
+demand_downturn,Lower demand regime with excess capacity and lower return flow.,bounded_complete_rows
+scrap_spike,Manufacturing scrap event increases loss and reduces available output.,bounded_complete_rows
+quality_degradation,Lower state of health and higher damage reduce reuse/remanufacture yield.,lower_quality_and_imputation_flags
+transport_disruption,Longer routes and lower collection performance increase logistics friction.,higher_transport_distance
+facility_outage,A recovery facility is unavailable for a subset of periods.,facility_available_zero_present
+material_shortage,Material-price pressure and lower recycled-content availability.,bounded_complete_rows
+grid_carbon_spike,Higher grid carbon intensity changes lifecycle impact pressure.,bounded_complete_rows
+return_surge,Unusually high end-of-life returns increase recovery workload.,higher_return_ratio
+reman_eligibility_low,A smaller share of collected material is eligible for remanufacture.,bounded_complete_rows
+service_infeasible,Demand exceeds regular plus overtime capacity and creates a measured service gap.,positive_service_gap

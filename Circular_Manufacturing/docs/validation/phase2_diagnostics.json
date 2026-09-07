@@ -1,0 +1,75 @@
+{
+  "phase": "PHASE-2",
+  "passed": true,
+  "checks": {
+    "demand_beats_baseline_mae": true,
+    "return_beats_baseline_brier": true,
+    "recovery_beats_baseline_macro_f1": true,
+    "scrap_beats_baseline_mae": true,
+    "synthetic_labels": true
+  },
+  "evidence": {
+    "demand": {
+      "task": "monthly battery demand forecasting",
+      "model_name": "Ridge regression with exogenous drivers",
+      "baseline_name": "12-month seasonal naive",
+      "metrics": {
+        "mae": 126.96145700385942,
+        "rmse": 146.5750377995216
+      },
+      "baseline_metrics": {
+        "mae": 192.46154155231207,
+        "rmse": 203.68753543531423
+      },
+      "validation_design": "Last 18 months held out; no future rows used in training.",
+      "evidence_class": "SYNTHETIC VALIDATION"
+    },
+    "returns": {
+      "task": "discrete-time end-of-life return hazard",
+      "model_name": "scaled logistic discrete-time hazard",
+      "baseline_name": "constant train-event-rate hazard",
+      "metrics": {
+        "brier": 0.0427087260117359,
+        "log_loss": 0.15829108624475097
+      },
+      "baseline_metrics": {
+        "brier": 0.04832646364327738,
+        "log_loss": 0.20121949790051333
+      },
+      "validation_design": "Hold out entire final 20% of cohorts; person-period rows never cross split.",
+      "evidence_class": "SYNTHETIC VALIDATION"
+    },
+    "recovery": {
+      "task": "recovery pathway classification",
+      "model_name": "HistGradientBoostingClassifier",
+      "baseline_name": "majority-class / empirical-frequency",
+      "metrics": {
+        "accuracy": 0.8988888888888888,
+        "macro_f1": 0.8477894830383366,
+        "log_loss": 0.2821586944383169
+      },
+      "baseline_metrics": {
+        "accuracy": 0.5522222222222222,
+        "macro_f1": 0.17788117394416608,
+        "log_loss": 1.1794325344869907
+      },
+      "validation_design": "Final 20% synthetic return records held out before training.",
+      "evidence_class": "SYNTHETIC VALIDATION"
+    },
+    "scrap": {
+      "task": "manufacturing scrap-rate prediction",
+      "model_name": "RandomForestRegressor",
+      "baseline_name": "training-mean scrap rate",
+      "metrics": {
+        "mae": 0.002235861157557379,
+        "rmse": 0.0028918352891348707
+      },
+      "baseline_metrics": {
+        "mae": 0.004095993900468073,
+        "rmse": 0.0050221062480805285
+      },
+      "validation_design": "Last 24 months held out chronologically.",
+      "evidence_class": "SYNTHETIC VALIDATION"
+    }
+  }
+}

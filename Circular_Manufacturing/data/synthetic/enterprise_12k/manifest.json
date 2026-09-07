@@ -1,0 +1,55 @@
+{
+  "dataset_name": "CIRCULAR_ENTERPRISE_SYNTHETIC_12K",
+  "schema_version": "1.0",
+  "evidence_class": "SYNTHETIC VALIDATION",
+  "seed": 20260906,
+  "as_of_utc": "2026-09-06T00:00:00+00:00",
+  "canonical_observation_rows": 12000,
+  "case_count": 12,
+  "periods_per_scenario": 10,
+  "scenarios_per_case": 100,
+  "source_basis": [
+    "https://www.epa.gov/ghgreporting/data-sets",
+    "https://greet.anl.gov/greet_battcf",
+    "https://www.energy.gov/cmei/vehicles/articles/fotw-1350-july-8-2024-2023-united-states-had-battery-recycling-facilities"
+  ],
+  "lineage": {
+    "source_system": "deterministic-synthetic-generator",
+    "source_owner": "circular-engineering",
+    "facility_id": "synthetic-multi-facility",
+    "as_of_utc": "2026-09-06T00:00:00+00:00",
+    "data_classification": "synthetic-validation"
+  },
+  "files": {
+    "observations.csv": {
+      "rows": 12000,
+      "sha256": "5952d547b9bbb3131d16f5f6a3d5efdaa7a55ace9b13f06353d116723cec2eb6",
+      "bytes": 4376404
+    },
+    "case_catalog.csv": {
+      "rows": 12,
+      "sha256": "f65d85e4104a3c5db74808096cdbec7a6350af0992638ef4ca95bcbbfc2ddc16",
+      "bytes": 1362
+    },
+    "adversarial_cases.csv": {
+      "rows": 6,
+      "sha256": "f6d68cfb12e5a05f2ca97fe243bbb077f4d47244990c5ddda6d7e4e854d5a584",
+      "bytes": 387
+    }
+  },
+  "case_types": [
+    "baseline",
+    "seasonal_peak",
+    "demand_downturn",
+    "scrap_spike",
+    "quality_degradation",
+    "transport_disruption",
+    "facility_outage",
+    "material_shortage",
+    "grid_carbon_spike",
+    "return_surge",
+    "reman_eligibility_low",
+    "service_infeasible"
+  ],
+  "claim_boundary": "Synthetic rows are for software, optimization, robustness, and training-pipeline validation. They are not plant telemetry, measured emissions, or realized-benefit evidence."
+}

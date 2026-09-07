@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-09-06T18:22:30.534374+00:00",
+  "status": "PASS",
+  "migration_directory": "migrations/postgres",
+  "migration_count": 1,
+  "migrations": [
+    {
+      "version": 1,
+      "filename": "001_initial_schema.sql",
+      "sha256": "89eff61680aef36f1a7b0d496dae629f535b08f1f5006d48a34fe8979a031586",
+      "required_markers_present": true,
+      "forbidden_markers_absent": true
+    }
+  ],
+  "errors": [],
+  "claim_boundary": "This report validates the checked-in migration inventory and file content only. It does not apply migrations, prove provider availability, certify backup/restore, or authorize a production deployment."
+}

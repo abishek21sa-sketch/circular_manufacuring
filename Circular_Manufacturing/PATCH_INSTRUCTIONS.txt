@@ -1,0 +1,9 @@
+IMPORTANT: This is a root-level patch ZIP. It intentionally has NO parent project folder.
+
+1. Open/extract this ZIP directly into your existing Circular_Manufacturing_V1 folder.
+2. Choose Replace/Overwrite for existing files.
+3. From that same folder run:
+
+   powershell -ExecutionPolicy Bypass -File scripts\windows_v101_patch_gate.ps1
+
+The gate itself reinstalls the editable package and verifies that the SQLite database directory can be deleted immediately after RunStore operations, which reproduces the Windows WinError 32 condition directly.

@@ -1,0 +1,282 @@
+{
+  "algorithm": "CIRCULAR-MASS",
+  "solver": "gurobi",
+  "gurobi_version": "Gurobi (13, 0, 3) status=2",
+  "reference": {
+    "status": "OPTIMAL",
+    "objective": 2997600.0,
+    "routed_kg": {
+      "Hydro-North": 500000.0,
+      "Direct-Midwest": 360000.0,
+      "Pyro-East": 0.0
+    },
+    "open_facilities": {
+      "Hydro-North": 1,
+      "Direct-Midwest": 1,
+      "Pyro-East": 0
+    },
+    "virgin_kg": [
+      203000.0,
+      359800.0,
+      518000.0
+    ],
+    "shortage_kg": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "expected_shortage_kg": 0.0,
+    "cvar_shortage_kg": 0.0,
+    "expected_recovered_kg": 720800.0,
+    "recycled_content_share": 0.7025341130604289,
+    "max_constraint_violation": 0.0,
+    "solver": "gurobi",
+    "eta": 0.0,
+    "alpha": 0.9,
+    "scenario_details": [
+      {
+        "name": "nominal",
+        "probability": 0.55,
+        "demand_kg": 1000000.0,
+        "yields": [
+          0.91,
+          0.95,
+          0.84
+        ],
+        "recovery_output_kg": 797000.0,
+        "recovered_kg": 797000.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 203000.0,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.797
+      },
+      {
+        "name": "yield-down",
+        "probability": 0.25,
+        "demand_kg": 1040000.0,
+        "yields": [
+          0.77,
+          0.82,
+          0.7
+        ],
+        "recovery_output_kg": 680200.0,
+        "recovered_kg": 680200.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 359800.0,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.6540384615384616
+      },
+      {
+        "name": "severe",
+        "probability": 0.2,
+        "demand_kg": 1080000.0,
+        "yields": [
+          0.62,
+          0.7,
+          0.58
+        ],
+        "recovery_output_kg": 562000.0,
+        "recovered_kg": 562000.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 518000.0,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.5203703703703704
+      }
+    ],
+    "objective_components": {
+      "facility_fixed_cost": 420000.0,
+      "recovery_variable_cost": 1662000.0,
+      "expected_virgin_cost": 915600.0,
+      "expected_shortage_cost": 0.0,
+      "expected_surplus_handling_cost": 0.0,
+      "cvar_risk_premium": 0.0
+    },
+    "best_bound": 2997600.0,
+    "mip_gap": 0.0,
+    "runtime_seconds": 0.0690000057220459,
+    "variable_count": 19,
+    "constraint_count": 12,
+    "diagnostics": {
+      "message": "Gurobi (13, 0, 3) status=2",
+      "success": true,
+      "requested_solver_backend": "gurobi",
+      "effective_solver_backend": "gurobi",
+      "solver_name": "gurobi",
+      "integrality_verified": true,
+      "eta_domain": "R",
+      "loss_definition": "scenario shortage kg; CVaR is applied to shortage only",
+      "surplus_definition": "scenario recovery output not consumed by demand; explicitly spilled/held out of recycled-content numerator",
+      "objective_reconciliation_error": 0.0,
+      "expected_demand_kg": 1026000.0
+    },
+    "surplus_kg": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "scipy_parity": {
+    "objective": 2997600.0,
+    "objective_delta": 0.0
+  },
+  "shortage_stress": {
+    "status": "OPTIMAL",
+    "objective": 5331947.8,
+    "routed_kg": {
+      "Hydro-North": 500000.0,
+      "Direct-Midwest": 360000.0,
+      "Pyro-East": 420000.0
+    },
+    "open_facilities": {
+      "Hydro-North": 1,
+      "Direct-Midwest": 1,
+      "Pyro-East": 1
+    },
+    "virgin_kg": [
+      0.0,
+      65800.0,
+      270000.0,
+      325000.0
+    ],
+    "shortage_kg": [
+      0.0,
+      0.0,
+      4400.0,
+      394800.0
+    ],
+    "expected_shortage_kg": 20400.0,
+    "cvar_shortage_kg": 199600.00000000003,
+    "expected_recovered_kg": 943400.0,
+    "recycled_content_share": 0.9097396335583414,
+    "max_constraint_violation": 0.0,
+    "solver": "gurobi",
+    "eta": 4400.0,
+    "alpha": 0.9,
+    "scenario_details": [
+      {
+        "name": "nominal",
+        "probability": 0.55,
+        "demand_kg": 1000000.0,
+        "yields": [
+          0.91,
+          0.95,
+          0.84
+        ],
+        "recovery_output_kg": 1149800.0,
+        "recovered_kg": 1000000.0,
+        "surplus_kg": 149800.0,
+        "virgin_kg": 0.0,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 1.0
+      },
+      {
+        "name": "yield-down",
+        "probability": 0.25,
+        "demand_kg": 1040000.0,
+        "yields": [
+          0.77,
+          0.82,
+          0.7
+        ],
+        "recovery_output_kg": 974200.0,
+        "recovered_kg": 974200.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 65800.0,
+        "shortage_kg": 0.0,
+        "loss_kg": 0.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.9367307692307693
+      },
+      {
+        "name": "severe",
+        "probability": 0.15,
+        "demand_kg": 1080000.0,
+        "yields": [
+          0.62,
+          0.7,
+          0.58
+        ],
+        "recovery_output_kg": 805600.0,
+        "recovered_kg": 805600.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 270000.0,
+        "shortage_kg": 4400.0,
+        "loss_kg": 4400.0,
+        "cvar_excess_kg": 0.0,
+        "recycled_content_share": 0.7459259259259259
+      },
+      {
+        "name": "rare-severe",
+        "probability": 0.05,
+        "demand_kg": 1300000.0,
+        "yields": [
+          0.45,
+          0.52,
+          0.4
+        ],
+        "recovery_output_kg": 580200.0,
+        "recovered_kg": 580200.0,
+        "surplus_kg": 0.0,
+        "virgin_kg": 325000.0,
+        "shortage_kg": 394800.0,
+        "loss_kg": 394800.0,
+        "cvar_excess_kg": 390400.0,
+        "recycled_content_share": 0.4463076923076923
+      }
+    ],
+    "objective_components": {
+      "facility_fixed_cost": 575000.0,
+      "recovery_variable_cost": 2754000.0,
+      "expected_virgin_cost": 219600.0,
+      "expected_shortage_cost": 1632000.0,
+      "expected_surplus_handling_cost": 1647.8000000000002,
+      "cvar_risk_premium": 149700.00000000003
+    },
+    "best_bound": 5331947.8,
+    "mip_gap": 0.0,
+    "runtime_seconds": 0.010999917984008789,
+    "variable_count": 23,
+    "constraint_count": 15,
+    "diagnostics": {
+      "message": "Gurobi (13, 0, 3) status=2",
+      "success": true,
+      "requested_solver_backend": "gurobi",
+      "effective_solver_backend": "gurobi",
+      "solver_name": "gurobi",
+      "integrality_verified": true,
+      "eta_domain": "R",
+      "loss_definition": "scenario shortage kg; CVaR is applied to shortage only",
+      "surplus_definition": "scenario recovery output not consumed by demand; explicitly spilled/held out of recycled-content numerator",
+      "objective_reconciliation_error": 0.0,
+      "expected_demand_kg": 1037000.0
+    },
+    "surplus_kg": [
+      149800.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "checks": {
+    "backend_is_gurobi": true,
+    "reference_optimal": true,
+    "reference_zero_mip_gap": true,
+    "reference_bound_matches": true,
+    "reference_feasible": true,
+    "reference_integrality_verified": true,
+    "reference_objective_reconciles": true,
+    "scipy_parity": true,
+    "stress_tail_risk_active": true,
+    "stress_backend_is_gurobi": true,
+    "stress_objective_reconciles": true
+  },
+  "claim_boundary": "Licensed solver verification and synthetic formulation evidence only; no field or realized-benefit claim."
+}

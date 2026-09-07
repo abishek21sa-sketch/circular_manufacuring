@@ -1,0 +1,33 @@
+{
+  "phase": "PHASE-10-CUMULATIVE",
+  "passed": true,
+  "checks": {
+    "all_ai_models_explained": true,
+    "demand_interval_calibrated": true,
+    "return_calibration_reasonable": true,
+    "decision_trace_complete": true,
+    "frontier_available": true,
+    "critical_material_resilience": true,
+    "routing_audited": true,
+    "digital_experiments": true,
+    "recommendation_human_gate": true,
+    "decision_hash": true,
+    "evidence_boundary": true
+  },
+  "recommended_policy": "resilience",
+  "confidence": 0.6830208167063067,
+  "trace_components": [
+    "DemandForecaster",
+    "ReturnHazardModel",
+    "ScrapPredictor",
+    "RecoveryPathwayClassifier",
+    "ScenarioBridge",
+    "TwoStageStochasticMILP",
+    "CriticalMaterialPlanner",
+    "CVRP",
+    "StrategicSensitivity",
+    "PolicyReplay",
+    "DecisionEngine"
+  ],
+  "decision_hash_sha256": "d1351c0da5c9a1ca179137d406d89cedd33d488f82f8690e29a3c58e872a2eda"
+}

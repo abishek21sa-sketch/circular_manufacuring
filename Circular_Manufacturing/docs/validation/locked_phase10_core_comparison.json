@@ -1,0 +1,254 @@
+{
+  "baseline": "0.10.5 Windows-accepted computational core",
+  "v1": "1.0.0",
+  "compared_files": 49,
+  "all_unchanged": true,
+  "files": [
+    {
+      "file": "src/circular_battery/ai/__init__.py",
+      "sha256": "0dde3875fa28eba41afb13cc351807236c8249426a670f501f95198441803bde",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/ai/explainability.py",
+      "sha256": "d3a7702a52af6aaa9b8bda06228aa2778ad450ed28ec256fdde17b1a1248295e",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/ai/integration.py",
+      "sha256": "39fd59ff424b4208b1cbb50c950bf95a38c9d71114ad5cae38b0406d986bcc43",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/ai/models.py",
+      "sha256": "3f4456ae969125dc60ffadb5d95ee93018ee4d9c5cdc487b1089e2d2f24915ce",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/ai/runtime.py",
+      "sha256": "e3793e310b1f51ef42c7d5cbdc18ed1907244c2e34191bfaf28a3467afbcc14b",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/ai/training.py",
+      "sha256": "4c4b9010bfbc76e5d86e38dbe3cee5822343d61dc534dccec8717433e6f66d09",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/analytics/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/analytics/sensitivity.py",
+      "sha256": "4abf7b6a952bb7f6ea55a172a5f008870efa34fc1887136b2cc3c8a9df300657",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/decision/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/decision/bridge.py",
+      "sha256": "9a5cc64842ac3da504821d83cce6c9f73bcc4bbb386a72611e2d594a00d3c584",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/decision/orchestrator.py",
+      "sha256": "07b474d390056cc3d384a0b33bdcd4535643cfca82d54d32dd64de72d6170fd0",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/engineering/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/engineering/lca.py",
+      "sha256": "e88828c3bbc13ba37f8bf8e84d90f11c6ef7bc9c3b9fff43571f11157f574d63",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/engineering/material_flow.py",
+      "sha256": "8e454a42dfa0ec33849e166d5ac4cf8ff59512d5c7731de941c86f47935778b9",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/engineering/value_stream.py",
+      "sha256": "cd791566e07b9332d50862d91914cc86d403d1003017d37153323b6d35339f88",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/lifecycle/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/lifecycle/demo.py",
+      "sha256": "9db70ae3e846e40d82d90ed62b901083b990ba50ffdbe32830b6675ba08281b6",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/lifecycle/engine.py",
+      "sha256": "ca3011cec603913b1cdfbda54ddd6c6eb3a7698c4ec158e0414664a11895c7be",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/lifecycle/impact.py",
+      "sha256": "7cc7f67497d17bd4dabf4b122d0f833faad9ff5c0798d97d7b720d58da1e25b6",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/lifecycle/metrics.py",
+      "sha256": "db524b0dba99b3c891c62db940d3e213cc661c3cf1134f502eccb984387974e4",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/lifecycle/models.py",
+      "sha256": "df7242b2334f468b27a106d5bfacf67335b5820c35fe3f5da93dad5be5d66f24",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/logistics/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/logistics/demo.py",
+      "sha256": "718c891ee8ae00532b76e1e465c590dcc13bd605a538c85125465eb8656d7484",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/logistics/models.py",
+      "sha256": "d922c86745b71fc38a8d557d2e7553d8f55e9f931f6bc79d95f953b37dde16cd",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/logistics/optimizer.py",
+      "sha256": "b382a26284f81a8d6ff59f78718208b551e579597ac82b78a5a43558da3c18a4",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/optimization/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/optimization/advanced_frontier.py",
+      "sha256": "b973bfa0a7cc39ba3065fb57af562788149521c4603339de0e7177fc024c5d6a",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/optimization/critical_materials.py",
+      "sha256": "939874203a856ead30b8ec4839dc201c927dee668e461ad3629997f2314ba8cf",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/optimization/frontier.py",
+      "sha256": "90c83ee3211840bc40058525637356f7b3c10011d55f0c1bab7fb9ab336b3488",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/optimization/gurobi_advanced.py",
+      "sha256": "a5812f5cfe10cc152e34a6bde68b161950fcf6e99453c994a473eeb8b9f471ff",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/optimization/network.py",
+      "sha256": "ba18a987dedd7d705ea5dedba29fce6c3c2612053cfb30e6efa4bc508f1c3444",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/optimization/stochastic_network.py",
+      "sha256": "89eb74f7d0acf7fd626f408855a65e496f1a3f8007652ee35acfbc0b4cb5e2f4",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/planning/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/planning/demo.py",
+      "sha256": "1b8c669f1d1002087c0be755829a9a4de61faec9b5eef7bd36b6054565bdb8fb",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/planning/ie_metrics.py",
+      "sha256": "741440320389c6857940f83f33676df5a06059fd322704364875e3666e7e81dc",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/planning/models.py",
+      "sha256": "65bbb33a555a7c77a95aad952a1935fc7801f4931b0dc731a4df93397005dc63",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/planning/optimizer.py",
+      "sha256": "fddad5538bf814f1671620a3b3f5fc38286dc10eccc7657acce0160eda42d153",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/reporting/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/reporting/phase10.py",
+      "sha256": "2f73dcf4eea93a91d5bc7fc00e3042e24d89723e7ed3715f97e11a91ce887000",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/reporting/phase567.py",
+      "sha256": "d31adaa79d81c7a39438e1db3ce3a1963469aa50e0e9b7517574372efb5b3c89",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/reporting/report.py",
+      "sha256": "be25cbe20b49d864ca4456eb285b8e6f50faf03a9831135ef9b9a6586ae5e3a5",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/routing/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/routing/cvrp.py",
+      "sha256": "17d6d54245553c509a762f89d4f61e474744dedd8685154040bce0598312c0a8",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/routing/demo.py",
+      "sha256": "882b2990caa3ca58d307f2c9daadd706ecae0f8ab2ff43aa2c06cc8ab544a76b",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/routing/models.py",
+      "sha256": "b90e817b066ddf6794db4dc7a7de13cce1f39676176bff6d1dcedb782d212442",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/simulation/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/simulation/policy_experiments.py",
+      "sha256": "e62e6a85b1415915f5fae783b883e8323c293d395df74ad2ec5496e64d03b6e5",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/simulation/stochastic.py",
+      "sha256": "3e94c57bbff93e78f5bd32c4c68b7af3d91de8b8d3115728d2559379ce3d58e9",
+      "unchanged": true
+    },
+    {
+      "file": "src/circular_battery/simulation/uncertainty.py",
+      "sha256": "67668e030e388db965dfec72bfa15dd4afe5dbe6ed0cd16c7dabe16d4b4f6dcb",
+      "unchanged": true
+    }
+  ],
+  "mismatches": []
+}

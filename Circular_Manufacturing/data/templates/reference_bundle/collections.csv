@@ -1,0 +1,5 @@
+name,returns_kg,reman_eligible_share,x_km,y_km
+Chicago,280000,0.34,0,0
+Detroit,240000,0.31,380,40
+Columbus,210000,0.28,520,-120
+Indianapolis,190000,0.3,300,-160

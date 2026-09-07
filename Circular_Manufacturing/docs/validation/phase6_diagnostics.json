@@ -1,0 +1,26 @@
+{
+  "phase": "PHASE-6",
+  "passed": true,
+  "checks": {
+    "optimal": true,
+    "network_mass_balance": true,
+    "facility_capacities": true,
+    "disposal_policy": true,
+    "constraint_audit": true,
+    "transport_cost_positive": true,
+    "transport_emissions_positive": true,
+    "reman_pathway_exercised": true
+  },
+  "solver": "scipy.optimize.milp",
+  "mip_gap": 0.0,
+  "opened_facilities": {
+    "R-Chicago": 1,
+    "R-Ohio": 1,
+    "M-Detroit": 1,
+    "M-Indiana": 0
+  },
+  "collected_kg": 809600.0,
+  "processed_kg": 647680.0,
+  "disposed_kg": 161920.0,
+  "max_constraint_violation": 2.9103830456733704e-11
+}

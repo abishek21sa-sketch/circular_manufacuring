@@ -1,0 +1,66 @@
+name: Engineering CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  portable-engineering:
+    name: Portable engineering checks
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: Circular_Manufacturing
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: Circular_Manufacturing/web/package-lock.json
+      - name: Build frontend from TypeScript source
+        working-directory: Circular_Manufacturing/web
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm run build
+      - name: Install locked dependencies
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install -r requirements-windows-py314.lock
+          python -m pip install -e ".[dev]" --no-deps
+      - name: Run portable regression and governance checks
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+          NUMEXPR_NUM_THREADS: '1'
+        run: |
+          python -m pytest -o addopts= -q tests/test_postgres_storage.py tests/test_postgres_operational_check.py tests/test_ingestion_governance.py tests/test_pilot_bundle.py tests/test_benefit_measurement.py tests/test_production_attestations.py tests/test_production_preflight.py tests/test_v1_platform.py tests/test_v1_ingestion.py tests/test_v1_api.py tests/test_phase4_workbench.py tests/test_release_readiness.py
+          python scripts/validate_governed_bundle.py data/templates/reference_bundle --require-lineage
+          python scripts/validate_production_attestations.py --out artifacts/production_attestation_validation.json
+          python scripts/postgres_operational_check.py --out artifacts/postgres_operational_check.json
+
+  licensed-gurobi:
+    name: Licensed Gurobi acceptance
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: [self-hosted, windows, gurobi]
+    defaults:
+      run:
+        working-directory: Circular_Manufacturing
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Run licensed acceptance
+        env:
+          GRB_LICENSE_FILE: ${{ secrets.GUROBI_LICENSE_FILE }}
+        run: ..\RUN_ACCEPTANCE.cmd

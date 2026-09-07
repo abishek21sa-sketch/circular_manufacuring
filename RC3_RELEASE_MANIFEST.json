@@ -1,0 +1,60 @@
+{
+  "package": "Circular_CIRCULAR_MASS_RC3_GUROBI_READINESS",
+  "release_stage": "RC3_GUROBI_VERIFIED_ENGINEERING_READINESS",
+  "build_date": "2026-09-06",
+  "windows_acceptance": "PASS_RC3_AND_PRODUCT_RUNTIME",
+  "members": [
+    "Circular_Manufacturing"
+  ],
+  "sanitizer_excludes": [
+    ".env",
+    ".git",
+    ".venv/venv",
+    "__pycache__",
+    ".pytest_cache",
+    ".coverage",
+    "node_modules",
+    "*.pyc/*.pyo",
+    "nested *.zip",
+    "local *.sqlite3/*.db",
+    "runtime *.jsonl logs"
+  ],
+  "release_candidate": "RC3_GUROBI_READINESS",
+  "python_target": "3.14",
+  "windows_entrypoint": "RUN_ACCEPTANCE.cmd",
+  "synthetic_benchmark_entrypoint": "RUN_SYNTHETIC_ENTERPRISE.cmd",
+  "user_command": ".\\RUN_ACCEPTANCE.cmd",
+  "powershell_policy_dependency": false,
+  "readiness_register": "Circular_Manufacturing/artifacts/release_readiness.json",
+  "clean_packager": "Circular_Manufacturing/scripts/package_release.py",
+  "production_preflight": "Circular_Manufacturing/artifacts/production_preflight.json",
+  "authentication_boundary": "Circular_Manufacturing/src/circular_battery/web/auth.py",
+  "commercial_production_status": "BLOCKED_PENDING_EXTERNAL_GATES",
+  "persistence_boundary": "Circular_Manufacturing/src/circular_battery/platform/postgres_storage.py",
+  "governed_ingestion": "Circular_Manufacturing/src/circular_battery/ingestion/governance.py",
+  "engineering_regression": "160 tests collected; final Windows engineering gate PASS",
+  "readiness_controls": [
+    "Circular_Manufacturing/migrations/postgres/001_initial_schema.sql",
+    "Circular_Manufacturing/scripts/validate_database_migrations.py",
+    "Circular_Manufacturing/scripts/validate_public_reference_dataset.py",
+    "Circular_Manufacturing/data/public/epa_ghgrp_2023_facilities.csv",
+    "Circular_Manufacturing/data/public/data_source_registry.json",
+    "Circular_Manufacturing/docs/PRODUCTION_EVIDENCE_INTAKE.md",
+    "Circular_Manufacturing/scripts/validate_production_attestations.py",
+    "Circular_Manufacturing/scripts/postgres_operational_check.py",
+    "Circular_Manufacturing/src/circular_battery/platform/service.py",
+    "Circular_Manufacturing/src/circular_battery/platform/observability.py",
+    "Circular_Manufacturing/scripts/validate_pilot_bundle.py",
+    "Circular_Manufacturing/scripts/benefit_measurement.py",
+    "Circular_Manufacturing/docs/ENTERPRISE_OPERATIONS.md",
+    "Circular_Manufacturing/docs/PILOT_DATA_AND_BENEFITS.md"
+    ,"Circular_Manufacturing/data/synthetic/enterprise_120k/observations.csv"
+    ,"Circular_Manufacturing/scripts/validate_synthetic_enterprise_dataset.py"
+    ,"Circular_Manufacturing/scripts/synthetic_enterprise_gurobi_benchmark.py"
+    ,"Circular_Manufacturing/docs/SYNTHETIC_ENTERPRISE_DATASET.md"
+    ,"Circular_Manufacturing/docs/DATA_SOURCE_REVIEW.md"
+    ,"Circular_Manufacturing/scripts/validate_data_source_registry.py"
+    ,"Circular_Manufacturing/docs/ENGINEERING_READINESS.md"
+    ,"Circular_Manufacturing/scripts/validate_engineering_readiness.py"
+  ]
+}

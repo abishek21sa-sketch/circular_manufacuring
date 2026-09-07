@@ -1,0 +1,20 @@
+{
+  "project": "Circular Manufacturing",
+  "signature_algorithm": "CIRCULAR-MASS",
+  "signature_coverage_percent": 99,
+  "coverage_threshold_percent": 90,
+  "coverage_gate": "PASS",
+  "regression_evidence": "117/117 tests",
+  "evidence_gate": "10/10 formulation; 7/7 product integration; 20-case sensitivity; shortage-CVaR stress and fine-tail ablation",
+  "windows_acceptance_command": ".\\RUN_ACCEPTANCE.cmd and .\\RUN_PRODUCT_ACCEPTANCE.cmd",
+  "windows_execution_status": "PASS_RC3_AND_PRODUCT_RUNTIME; LICENSED_GUROBI_OPTIONAL_GATE_NOT_RUN",
+  "mandatory_engineering_release_status": "PASS_WITH_LICENSED_GUROBI_GATE_PENDING",
+  "null_hypotheses": [
+    "H0-C1: CIRCULAR-MASS does not reduce virgin-material dependence versus a virgin-only policy while satisfying the same modeled demand/service constraints.",
+    "H0-C2: Stochastic recovery-yield modeling does not materially change shortage/tail-risk decisions versus deterministic average-yield planning."
+  ],
+  "evidence_class_discipline": "PASS",
+  "llm_is_decision_engine": false,
+  "human_review_gate_required": true,
+  "research_upgrade_status": "PARTIAL_DEFERRED_NOT_RELEASE_BLOCKING"
+}

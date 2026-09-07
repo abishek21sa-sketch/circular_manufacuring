@@ -1,0 +1,17 @@
+{
+  "release": "PHASE-10-CUMULATIVE",
+  "version": "0.10.0",
+  "data_status": "SYNTHETIC VALIDATION",
+  "portable_tests_expected": 69,
+  "portable_diagnostics": "PHASES_1_THROUGH_10_REQUIRED_PASS",
+  "licensed_gurobi_phase10": "PENDING_WINDOWS_ACCEPTANCE",
+  "recommended_policy": "resilience",
+  "decision_confidence": 0.684726244054506,
+  "nondominated_strategy_points": 4,
+  "route_vehicles": 3,
+  "route_distance_km": 299.61563972852247,
+  "critical_material_recovered_share": 0.26396002498438476,
+  "decision_trace_steps": 11,
+  "decision_hash_sha256": "107d450cd27d536e053e66bb2ca525b5bbb7c4b91b6ab08e88a1cff676e96b9f",
+  "real_world_validation": "PENDING"
+}

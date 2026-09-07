@@ -1,0 +1,120 @@
+{
+  "schema_version": "1.0",
+  "ingestion_id": "ing_cf8b4ae0b7a22cfa",
+  "bundle_hash_sha256": "d54bcb1240391b5195d6eabaea98cbdd8713c12748037779d5b6b7f348e31dcf",
+  "evidence_class": "SYNTHETIC VALIDATION",
+  "lineage": {
+    "source_system": "reference-template",
+    "source_owner": "circular-engineering",
+    "facility_id": "synthetic-reference",
+    "as_of_utc": "2026-09-04T00:00:00+00:00",
+    "data_classification": "synthetic-validation"
+  },
+  "files": [
+    {
+      "file": "materials.csv",
+      "sha256": "662ada99ab4dd50ad7c9f96ce6f46d398bfcff6841555a7713b251c7a3948a95",
+      "bytes": 331,
+      "rows": 7,
+      "columns": [
+        "name",
+        "kg_per_pack",
+        "virgin_cost_per_kg",
+        "recycled_cost_per_kg",
+        "virgin_kgco2e_per_kg",
+        "recycled_kgco2e_per_kg",
+        "recycling_yield",
+        "critical"
+      ],
+      "missing_columns": [],
+      "invalid_cell_count": 0,
+      "invalid_cells_sample": []
+    },
+    {
+      "file": "periods.csv",
+      "sha256": "31b2a9783fb32708e7a7f6afe9c12b6660a2aca4d10078297dddb2b916919315",
+      "bytes": 211,
+      "rows": 4,
+      "columns": [
+        "period",
+        "production_packs",
+        "eol_returns_packs",
+        "collection_rate",
+        "grade_A",
+        "grade_B",
+        "grade_C"
+      ],
+      "missing_columns": [],
+      "invalid_cell_count": 0,
+      "invalid_cells_sample": []
+    },
+    {
+      "file": "collections.csv",
+      "sha256": "f468e0179d0235913e5a0dcca3804cd8f997f0ea4ef0df44a6cc8835260f1c0a",
+      "bytes": 166,
+      "rows": 4,
+      "columns": [
+        "name",
+        "returns_kg",
+        "reman_eligible_share",
+        "x_km",
+        "y_km"
+      ],
+      "missing_columns": [],
+      "invalid_cell_count": 0,
+      "invalid_cells_sample": []
+    },
+    {
+      "file": "facilities.csv",
+      "sha256": "da61bdb69fa4dda1f76dc73a30a3e54c7ae572211c42ea8b6e9b19970d06e94b",
+      "bytes": 284,
+      "rows": 4,
+      "columns": [
+        "name",
+        "kind",
+        "capacity_kg",
+        "fixed_cost",
+        "processing_cost_per_kg",
+        "processing_kgco2e_per_kg",
+        "x_km",
+        "y_km"
+      ],
+      "missing_columns": [],
+      "invalid_cell_count": 0,
+      "invalid_cells_sample": []
+    },
+    {
+      "file": "planning.csv",
+      "sha256": "75a1974850688b05eb700a80f136054f3835946973007dba5075954585af7a20",
+      "bytes": 136,
+      "rows": 4,
+      "columns": [
+        "period",
+        "demand_packs",
+        "regular_capacity_packs",
+        "overtime_capacity_packs"
+      ],
+      "missing_columns": [],
+      "invalid_cell_count": 0,
+      "invalid_cells_sample": []
+    }
+  ],
+  "checks": {
+    "schema_integrity": {
+      "status": "PASS",
+      "detail": "required columns and non-empty rows are present"
+    },
+    "numeric_quality": {
+      "status": "PASS",
+      "detail": "numeric cells are finite"
+    },
+    "lineage_completeness": {
+      "status": "PASS",
+      "detail": "source, owner, facility, classification, and UTC validity metadata are complete"
+    }
+  },
+  "validation_status": "PASS",
+  "governance_status": "PASS",
+  "accepted_for_optimization": true,
+  "claim_boundary": "Schema and data-quality checks do not independently verify source truth, measurement accuracy, or realized operational outcomes."
+}

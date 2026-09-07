@@ -1,0 +1,41 @@
+{
+  "release": "V1.2",
+  "version": "1.2.1",
+  "passed": true,
+  "checks": {
+    "version_1_2_1": true,
+    "reference_release_v1": true,
+    "phase10_reference_present": true,
+    "frontend_v1_depth": true,
+    "external_bundle_valid": true,
+    "external_bundle_mass_closes": true,
+    "external_bundle_reverse_optimal": true,
+    "external_bundle_plan_optimal": true,
+    "registry_operational": true,
+    "compliance_no_unimplemented": true,
+    "compliance_evidence_paths_exist": true,
+    "required_docs_present": true,
+    "render_asset": true,
+    "docker_asset": true,
+    "env_template": true,
+    "no_release_joblib_estimators": true
+  },
+  "missing_docs": [],
+  "bad_compliance_statuses": [],
+  "missing_compliance_evidence": [],
+  "bundle_hash_sha256": "d54bcb1240391b5195d6eabaea98cbdd8713c12748037779d5b6b7f348e31dcf",
+  "runtime_environment": {
+    "python": "3.14.7",
+    "implementation": "CPython",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "dependency_versions": {
+      "numpy": "2.5.2",
+      "scipy": "1.18.1",
+      "pandas": "3.0.5",
+      "scikit-learn": "1.9.0",
+      "joblib": "1.6.0",
+      "gurobipy": "13.0.3"
+    },
+    "code_fingerprint_sha256": "60d7d57ff09713c2315857a3175878d3ed3a0c0e68d939d0f9189252d51aacc2"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "phase": "PHASE-8",
+  "passed": true,
+  "checks": {
+    "ai_to_stochastic_contract": true,
+    "two_stage_optimal": true,
+    "two_stage_constraint_audit": true,
+    "cvar_tail_valid": true,
+    "nondominated_frontier": true,
+    "literal_cvrp_optimal": true,
+    "critical_material_plan": true,
+    "critical_material_no_shortage": true
+  },
+  "stochastic": {
+    "expected_cost": 19548276.68541975,
+    "cvar_cost": 20995576.866922505,
+    "expected_service": 1.0
+  },
+  "routing": {
+    "vehicles": 3,
+    "distance_km": 299.61563972852247,
+    "mip_gap": 0.0
+  },
+  "critical_materials": {
+    "recovered_share": 0.26396002498438476,
+    "supplier_hhi": {
+      "lithium": 0.545,
+      "nickel": 0.5648000000000001,
+      "cobalt": 0.52,
+      "graphite": 0.5008419143876338
+    }
+  }
+}

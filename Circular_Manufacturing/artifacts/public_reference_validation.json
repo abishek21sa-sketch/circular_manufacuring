@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "passed": true,
+  "csv": "data/public/epa_ghgrp_2023_facilities.csv",
+  "metadata": "data/public/epa_ghgrp_2023_metadata.json",
+  "record_count": 6470,
+  "unique_facility_count": 6470,
+  "errors": [],
+  "claim_boundary": "Validation checks the CSV contract and provenance metadata. It does not independently verify EPA source truth, plant operations, causal performance, recovery yields, costs, or realized benefits."
+}

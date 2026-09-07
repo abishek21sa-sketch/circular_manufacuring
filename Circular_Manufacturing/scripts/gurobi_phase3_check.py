@@ -1,0 +1,11 @@
+from circular_battery.optimization.network import NetworkScenario, solve_with_gurobi
+s=NetworkScenario()
+sol=solve_with_gurobi(s,carbon_price_per_kg=.15)
+print("GUROBI_PHASE3_OK")
+print(f"STATUS={sol.status}")
+print(f"OBJECTIVE={sol.objective:.4f}")
+print(f"MIP_GAP={sol.mip_gap}")
+print(f"RUNTIME_SECONDS={sol.runtime_seconds}")
+print(f"MAX_CONSTRAINT_VIOLATION={sol.max_constraint_violation:.10f}")
+print(f"RECYCLE_OPEN={sol.recycle_open}")
+print(f"REMAN_OPEN={sol.reman_open}")
