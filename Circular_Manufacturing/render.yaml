@@ -2,6 +2,7 @@ services:
   - type: web
     name: circular-material-studio
     runtime: python
+    rootDir: Circular_Manufacturing
     buildCommand: pip install ".[gurobi,postgres]" && python scripts/build_frontend.py
     startCommand: HOST=0.0.0.0 python scripts/run_workbench.py
     healthCheckPath: /api/v1/health
