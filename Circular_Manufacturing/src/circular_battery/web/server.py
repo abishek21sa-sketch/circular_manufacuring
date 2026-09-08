@@ -44,6 +44,9 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("X-Frame-Options","DENY")
         self.send_header("Content-Security-Policy","default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'")
         self.send_header("Permissions-Policy","geolocation=(), microphone=(), camera=()")
+        self.send_header("Access-Control-Allow-Origin",os.getenv("CIRCULAR_CORS_ORIGIN","*"))
+        self.send_header("Access-Control-Allow-Methods","GET,POST,DELETE,OPTIONS")
+        self.send_header("Access-Control-Allow-Headers","Authorization,Content-Type,X-Request-ID")
 
     def _json(self,obj,status=200,request_id=None,envelope=False):
         request_id=request_id or self._request_id()
@@ -104,6 +107,13 @@ class Handler(BaseHTTPRequestHandler):
         try: value=int(qs.get(key,[default])[0])
         except (TypeError,ValueError): value=default
         return max(1,min(value,max_value))
+
+    def do_OPTIONS(self):
+        request_id=self._request_id()
+        self.send_response(204)
+        self.send_header("Content-Length","0")
+        self._security_headers(request_id)
+        self.end_headers()
 
     def do_GET(self):
         request_id=self._request_id()

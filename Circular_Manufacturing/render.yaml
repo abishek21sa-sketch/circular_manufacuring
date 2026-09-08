@@ -2,7 +2,7 @@ services:
   - type: web
     name: circular-material-studio
     runtime: python
-    buildCommand: pip install ".[gurobi,postgres]"
+    buildCommand: pip install ".[gurobi,postgres]" && python scripts/build_frontend.py
     startCommand: HOST=0.0.0.0 python scripts/run_workbench.py
     healthCheckPath: /api/v1/health
     autoDeployTrigger: checksPass
@@ -17,3 +17,5 @@ services:
         value: operator
       - key: CIRCULAR_API_TOKEN_SHA256
         sync: false
+      - key: CIRCULAR_CORS_ORIGIN
+        value: "*"

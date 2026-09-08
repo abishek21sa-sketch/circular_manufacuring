@@ -6,9 +6,11 @@ let reference:AnyObj = {};
 let selectedPolicy = "";
 let selectedRiskPolicy = "";
 let selectedTrace = 0;
+const API_BASE = String((window as any).__CIRCULAR_API_BASE__ || "").replace(/\/$/, "");
 
 async function fetchJSON(url:string, options?:RequestInit){
-  const r=await fetch(url,options);
+  const target = url.startsWith("/api/") ? `${API_BASE}${url}` : url;
+  const r=await fetch(target,options);
   const payload=await r.json();
   if(!r.ok) throw new Error(payload?.error?.message || payload?.error || `HTTP ${r.status}`);
   return payload;

@@ -380,3 +380,11 @@ See `docs/LIMITATIONS.md`.
 ## Signature algorithm
 
 See [`docs/SIGNATURE_ALGORITHM.md`](docs/SIGNATURE_ALGORITHM.md) for the governed CIRCULAR-MASS formulation and validation contract.
+## Deployment
+
+Deploy `web/` as the Vercel project root. Vercel builds the TypeScript UI into
+`dist/` and uses `web/api/[...path].js` as a server-side proxy to the protected
+Render API. Set `CIRCULAR_BACKEND_URL` and `CIRCULAR_API_TOKEN` in Vercel; the
+token is never shipped to the browser. Set the SHA-256 digest of that same
+token as Render's `CIRCULAR_API_TOKEN_SHA256`, then deploy the repository root
+as the Render Blueprint and verify `/api/v1/health`.

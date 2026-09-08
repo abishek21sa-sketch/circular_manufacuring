@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Source-build toolchain for the Circular Manufacturing decision-support frontend.",
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json && node build.mjs"
   },
   "devDependencies": {
     "typescript": "7.0.2"
