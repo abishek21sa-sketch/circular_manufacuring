@@ -30,6 +30,18 @@ MAX_BODY_BYTES=2_000_000
 MAX_REQUEST_TARGET_BYTES=16_384
 REQUEST_ID_PATTERN=re.compile(r"^[A-Za-z0-9._-]{1,64}$")
 
+
+def _allowed_cors_origins():
+    """Origins allowed to call the API cross-origin (the deployed Vercel frontend).
+
+    Empty by default: the legacy Studio is served same-origin from DIST, so no
+    browser ever needs a CORS grant unless CIRCULAR_CORS_ORIGINS is set for the
+    split frontend/frontend (Vercel) + backend (Render) deployment. See
+    README.md "Deployment".
+    """
+    raw=os.getenv("CIRCULAR_CORS_ORIGINS","").strip()
+    return [o.strip() for o in raw.split(",") if o.strip()]
+
 class Handler(BaseHTTPRequestHandler):
     server_version="MaterialCircularityStudio/1.2.1"
 
@@ -44,6 +56,15 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header("X-Frame-Options","DENY")
         self.send_header("Content-Security-Policy","default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'")
         self.send_header("Permissions-Policy","geolocation=(), microphone=(), camera=()")
+        self._cors_headers()
+
+    def _cors_headers(self):
+        origin=self.headers.get("Origin","")
+        if origin and origin in _allowed_cors_origins():
+            self.send_header("Access-Control-Allow-Origin",origin)
+            self.send_header("Vary","Origin")
+            self.send_header("Access-Control-Allow-Headers","Authorization, Content-Type, X-Request-ID")
+            self.send_header("Access-Control-Allow-Methods","GET, POST, DELETE, OPTIONS")
 
     def _json(self,obj,status=200,request_id=None,envelope=False):
         request_id=request_id or self._request_id()
@@ -235,6 +256,16 @@ class Handler(BaseHTTPRequestHandler):
             self._error(e.code,e.message,e.http_status,request_id,e.details)
         except Exception as e:
             self._error("INTERNAL_ERROR","Internal server error.",500,request_id)
+
+    def do_OPTIONS(self):
+        # CORS preflight: browsers send this without credentials, so it must
+        # never go through _authorize (which would demand a bearer token the
+        # preflight can't carry).
+        request_id=self._request_id()
+        self.send_response(204)
+        self.send_header("Content-Length","0")
+        self._security_headers(request_id)
+        self.end_headers()
 
     def log_message(self,fmt,*args):
         # Keep console concise; structured JSONL logger retains operational events.

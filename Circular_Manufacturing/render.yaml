@@ -17,3 +17,10 @@ services:
         value: operator
       - key: CIRCULAR_API_TOKEN_SHA256
         sync: false
+      # Set this AFTER the Vercel frontend (frontend/) is deployed and its URL
+      # is known, e.g. https://circular-material-studio.vercel.app -- comma-
+      # separate multiple origins (preview + production). Leave unset while
+      # this backend is the only thing serving the UI (web/dist same-origin).
+      # See README.md "Deployment" for the full three-step order.
+      - key: CIRCULAR_CORS_ORIGINS
+        value: ""

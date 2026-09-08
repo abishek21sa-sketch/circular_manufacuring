@@ -249,17 +249,50 @@ For the shipped seeded reference experiment, the comparable-recourse analysis re
 
 ## Material Circularity Studio
 
-Start locally:
+The Studio ships two frontends during the rewrite:
+
+- **`frontend/`** — the current UI: a real SvelteKit + TypeScript single-page
+  app (file-based routing, one Svelte component per tab, `npm run build`
+  produces a static Vercel deployment). This is what should be developed and
+  deployed going forward.
+- **`web/`** — the pre-rewrite legacy frontend: a hand-written TypeScript
+  bundle compiled by plain `tsc` into `web/dist/app.js` and served directly by
+  `circular_battery.web.server`. Kept for reference only; it is not part of
+  the deploy path described below and can be removed once `frontend/` has
+  been validated against a real deployment.
+
+All eleven tabs (`MATERIALS · NETWORK · PLAN · STRATEGY · ROUTES · AI · RISK ·
+CIRCULAR-MASS · TRACE · RUNS · EVIDENCE`) are ported to `frontend/` with full
+feature parity against `web/`, including the interactive quick-resolve
+(`/api/optimize`), the CIRCULAR-MASS solve-and-gate workflow, and the RUNS
+registry composer/inspector. See `frontend/README` (this section) and
+`frontend/src/routes/` for the route-per-tab layout.
+
+### Running the backend only (legacy UI at the same origin)
 
 ```powershell
 python scripts\run_workbench.py
 ```
 
-Open:
+Open `http://127.0.0.1:8765` — this serves `web/dist` unchanged, exactly as
+before.
 
-```text
-http://127.0.0.1:8765
+### Running the new SvelteKit frontend against it
+
+```powershell
+python scripts\run_workbench.py          # backend on :8765, in one terminal
+cd frontend
+npm install
+npm run dev                              # SvelteKit dev server on :5173
 ```
+
+`frontend/.env.example` documents `VITE_API_BASE` (defaults to
+`http://127.0.0.1:8765`, matching the command above). Copy it to `.env` to
+override for a different backend. The whole app is a client-rendered SPA
+(`ssr = false` in the root layout) that fetches `/api/v1/workbench` and
+`/api/reference` once on load and shares them across every tab; CIRCULAR-MASS
+and RUNS each fetch their own data independently, matching the legacy
+per-view boot behavior in `web/src/app.ts`.
 
 The final Studio is organized as an engineering workspace rather than a conventional KPI dashboard:
 
@@ -362,7 +395,25 @@ Every public claim should retain the distinction between **PREDICTED**, **CALCUL
 
 ## Deployment
 
-A Render Blueprint and Dockerfile are included.
+A Render Blueprint (`render.yaml`) deploys the Python backend; the SvelteKit
+app in `frontend/` deploys separately to Vercel. Bring them up **in this
+order** — each step depends on the last:
+
+1. **Backend first, on Render.** Deploy `render.yaml` as-is (`CIRCULAR_CORS_ORIGINS`
+   ships empty, so the backend still only serves `web/dist` same-origin at
+   this point). Note the resulting URL, e.g.
+   `https://circular-material-studio.onrender.com`.
+2. **Frontend second, on Vercel, pointed at that URL.** Import `frontend/` as
+   a Vercel project (root directory `frontend/`; it already targets
+   `@sveltejs/adapter-vercel` and builds to fully static output — no
+   serverless functions are required for this app). Set the project's
+   `VITE_API_BASE` environment variable to the Render URL from step 1, then
+   deploy. Note the resulting Vercel URL.
+3. **CORS back on the backend, last.** Set `CIRCULAR_CORS_ORIGINS` on the
+   Render service to the Vercel URL from step 2 (comma-separate a preview URL
+   too, if used) and redeploy the backend. Until this step, the deployed
+   frontend's API calls will fail the browser's CORS check even though the
+   backend itself is reachable.
 
 Local Windows execution remains the required acceptance target. Public deployment is intentionally a separate operational step and is not represented as completed simply because configuration files exist.
 
