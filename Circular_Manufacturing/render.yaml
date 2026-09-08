@@ -11,7 +11,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.14.7
       - key: CIRCULAR_DEPLOYMENT_MODE
-        value: production
+        value: staging
       - key: CIRCULAR_AUTH_MODE
         value: bearer
       - key: CIRCULAR_API_ROLE
