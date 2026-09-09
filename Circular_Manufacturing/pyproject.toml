@@ -23,6 +23,3 @@ where = ["src"]
 pythonpath = ["src"]
 testpaths = ["tests"]
 addopts = "-q"
-
-[tool.vercel]
-entrypoint = "scripts.product_runtime:Handler"
