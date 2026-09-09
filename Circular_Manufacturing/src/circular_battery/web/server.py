@@ -170,6 +170,8 @@ class Handler(BaseHTTPRequestHandler):
             if path=="/api/production-plan": return self._json(production_plan_payload(),request_id=request_id)
             if path=="/api/phase10": return self._json(phase10_payload(),request_id=request_id)
 
+            if not (DIST/"index.html").exists():
+                return self._error("NOT_FOUND","Legacy frontend not built on this deployment -- use the separate frontend/ app instead.",404,request_id)
             target=DIST/("index.html" if path=="/" else path.lstrip("/"))
             target=target.resolve()
             dist=DIST.resolve()
@@ -253,7 +255,13 @@ class Handler(BaseHTTPRequestHandler):
 def run(host="127.0.0.1",port=8765):
     validate_server_configuration(host)
     if not (DIST/"index.html").exists():
-        raise RuntimeError("Frontend is not built. Run scripts/build_frontend.py first.")
+        # The legacy same-origin frontend (web/) is optional: the primary UI is now
+        # frontend/, a separate SvelteKit app deployed independently (see README.md
+        # "Deployment"). API routes below don't depend on DIST, so a missing legacy
+        # build is a warning, not a startup failure -- it only means static-fallback
+        # requests to this service (anything not under /api/*) will 404 instead of
+        # serving the old bundle.
+        print("[studio] warning: legacy web/dist not built -- static-fallback routes will 404; API routes are unaffected")
     runtime_health=get_enterprise_service().store.health()
     if (
         os.getenv("CIRCULAR_DEPLOYMENT_MODE", "local").strip().lower()=="production"

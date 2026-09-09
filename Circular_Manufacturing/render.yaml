@@ -3,7 +3,13 @@ services:
     name: circular-material-studio
     runtime: python
     rootDir: Circular_Manufacturing
-    buildCommand: pip install ".[gurobi,postgres]" && python scripts/build_frontend.py
+    # No longer builds the legacy web/ frontend here -- that required a TypeScript
+    # toolchain (tsc) that this Python native runtime's build step doesn't reliably
+    # persist into the runtime container (the actual cause of every deploy failing
+    # with "Frontend is not built" despite the build step reporting success). The
+    # primary UI is now frontend/, a separate SvelteKit app deployed to Vercel; this
+    # service only needs to serve /api/*.
+    buildCommand: pip install ".[gurobi,postgres]"
     startCommand: HOST=0.0.0.0 python scripts/run_workbench.py
     healthCheckPath: /api/v1/health
     autoDeployTrigger: checksPass
@@ -19,4 +25,4 @@ services:
       - key: CIRCULAR_API_TOKEN_SHA256
         sync: false
       - key: CIRCULAR_CORS_ORIGIN
-        value: "*"
+        value: https://circular-material-studio-frontend.vercel.app
