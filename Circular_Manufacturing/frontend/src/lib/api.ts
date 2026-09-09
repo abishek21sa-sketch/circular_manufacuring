@@ -11,13 +11,21 @@ export type AnyObj = Record<string, any>;
 const RAW_BASE = import.meta.env.VITE_API_BASE || 'http://127.0.0.1:8765';
 export const API_BASE = RAW_BASE.replace(/\/+$/, '');
 
+// The deployed backend runs CIRCULAR_AUTH_MODE=bearer (see auth.py): every route
+// except /api/*health* requires an Authorization header whose token's SHA256
+// matches CIRCULAR_API_TOKEN_SHA256 on the backend. Local dev leaves this unset,
+// matching the backend's default CIRCULAR_AUTH_MODE=disabled.
+const API_TOKEN = import.meta.env.VITE_API_TOKEN as string | undefined;
+
 function url(path: string): string {
 	return `${API_BASE}${path}`;
 }
 
 /** Legacy (unenveloped) Phase API + /api/optimize: parses JSON, throws on !ok. */
 export async function fetchJSON<T = AnyObj>(path: string, options?: RequestInit): Promise<T> {
-	const r = await fetch(url(path), options);
+	const headers = new Headers(options?.headers);
+	if (API_TOKEN) headers.set('Authorization', `Bearer ${API_TOKEN}`);
+	const r = await fetch(url(path), { ...options, headers });
 	const payload = await r.json();
 	if (!r.ok) {
 		throw new Error(payload?.error?.message || payload?.error || `HTTP ${r.status}`);
