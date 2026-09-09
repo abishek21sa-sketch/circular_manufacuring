@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json, mimetypes, os, re, uuid
+import json, mimetypes, os, re, traceback, uuid
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from urllib.parse import urlparse, parse_qs
@@ -191,6 +191,8 @@ class Handler(BaseHTTPRequestHandler):
         except (ValueError,TypeError) as e:
             self._error("VALIDATION_ERROR",str(e),422,request_id)
         except Exception as e:
+            print(f"[studio] unhandled_error request_id={request_id} path={path}",flush=True)
+            traceback.print_exc()
             get_enterprise_service().logger.emit("http.unhandled_error",request_id=request_id,path=path,error_type=type(e).__name__)
             self._error("INTERNAL_ERROR","Internal server error.",500,request_id)
 
@@ -229,6 +231,8 @@ class Handler(BaseHTTPRequestHandler):
         except (ValueError,TypeError) as e:
             self._error("VALIDATION_ERROR",str(e),422,request_id)
         except Exception as e:
+            print(f"[studio] unhandled_error request_id={request_id} path={path}",flush=True)
+            traceback.print_exc()
             get_enterprise_service().logger.emit("http.unhandled_error",request_id=request_id,path=path,error_type=type(e).__name__)
             self._error("INTERNAL_ERROR","Internal server error.",500,request_id)
 
@@ -246,6 +250,8 @@ class Handler(BaseHTTPRequestHandler):
         except PlatformError as e:
             self._error(e.code,e.message,e.http_status,request_id,e.details)
         except Exception as e:
+            print(f"[studio] unhandled_error request_id={request_id} path={path}",flush=True)
+            traceback.print_exc()
             self._error("INTERNAL_ERROR","Internal server error.",500,request_id)
 
     def log_message(self,fmt,*args):
