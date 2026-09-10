@@ -16,8 +16,9 @@ from circular_battery.ingestion.bundle import validate_bundle
 from circular_battery.ingestion.governance import inspect_bundle
 from circular_battery.ingestion.public_reference import public_reference_summary, public_reference_facilities
 from circular_battery.decision.circular_mass_bridge import build_circular_mass_decision, circular_mass_reference_payload
+from circular_battery.paths import find_repo_root
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = find_repo_root()
 VERSION="1.2.1"
 
 def _load(name):

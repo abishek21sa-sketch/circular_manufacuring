@@ -19,8 +19,9 @@ from circular_battery.routing.demo import demo_cvrp_scenario
 from circular_battery.routing.cvrp import solve_cvrp
 from circular_battery.decision.bridge import ai_to_uncertainty_scenarios
 from circular_battery.optimization.stochastic_value import stochastic_value_metrics
+from circular_battery.paths import find_repo_root
 
-ROOT=Path(__file__).resolve().parents[3]
+ROOT=find_repo_root()
 
 
 def _reference_core():

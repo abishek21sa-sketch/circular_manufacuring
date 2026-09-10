@@ -23,8 +23,9 @@ from circular_battery.web.auth import (
     required_role,
     validate_server_configuration,
 )
+from circular_battery.paths import find_repo_root
 
-ROOT=Path(__file__).resolve().parents[3]
+ROOT=find_repo_root()
 DIST=ROOT/"web"/"dist"
 MAX_BODY_BYTES=2_000_000
 MAX_REQUEST_TARGET_BYTES=16_384

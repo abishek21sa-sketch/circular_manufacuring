@@ -12,8 +12,9 @@ from collections import Counter
 from functools import lru_cache
 from pathlib import Path
 
+from circular_battery.paths import find_repo_root
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = find_repo_root()
 CSV_PATH = ROOT / "data" / "public" / "epa_ghgrp_2023_facilities.csv"
 METADATA_PATH = ROOT / "data" / "public" / "epa_ghgrp_2023_metadata.json"
 
