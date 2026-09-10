@@ -8,8 +8,9 @@ from circular_battery.platform.validation import validate_decision_run_config
 from circular_battery.platform.provenance import code_fingerprint, environment_snapshot
 from circular_battery.platform.observability import JsonlEventLogger
 from circular_battery.platform.errors import ExecutionError
+from circular_battery.paths import find_repo_root
 
-ROOT=Path(__file__).resolve().parents[3]
+ROOT=find_repo_root()
 
 class EnterpriseDecisionService:
     def __init__(self, store:RunStore, *, root:Path|str=ROOT, logger:JsonlEventLogger|None=None):

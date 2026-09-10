@@ -49,6 +49,9 @@ const jsonPost = (body: unknown): RequestInit => ({
 export const getWorkbench = () => fetchV1<AnyObj>('/api/v1/workbench');
 export const getReference = () => fetchJSON<AnyObj>('/api/reference');
 
+// ---- Public reference data (EPA GHGRP facility emissions) ----
+export const getPublicReferenceSummary = () => fetchV1<AnyObj>('/api/v1/public-reference/summary');
+
 // ---- Strategy tab: quick deterministic re-solve ----
 export interface OptimizeRequest {
 	scenario: { collection_rate: number; recycle_yield: number };

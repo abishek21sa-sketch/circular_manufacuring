@@ -1,8 +1,26 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { workbenchState } from '$lib/workbench';
+	import { getPublicReferenceSummary } from '$lib/api';
 
 	const models = $derived(($workbenchState.wb.math_inventory || []) as any[]);
 	const boundaries = $derived(($workbenchState.wb.known_model_boundaries || []) as string[]);
+
+	let publicRef: any = $state(null);
+	let publicRefError: string | null = $state(null);
+
+	onMount(() => {
+		getPublicReferenceSummary()
+			.then((s) => (publicRef = s))
+			.catch((e) => (publicRefError = e?.message || String(e)));
+	});
+
+	const topStates = $derived(
+		(Object.entries(publicRef?.top_states_by_record_count || {}) as [string, number][]).slice(0, 8)
+	);
+	const topSectors = $derived(
+		(Object.entries(publicRef?.top_sectors_by_record_count || {}) as [string, number][]).slice(0, 8)
+	);
 </script>
 
 <section class="view">
@@ -43,5 +61,41 @@
 			<div class="evidence-callout good">Licensed Gurobi hierarchical multi-objective pass accepted.</div>
 			<div class="evidence-callout pending">External lifecycle calibration and realized operational benefits remain pending.</div>
 		</aside>
+		<div class="panel span-full">
+			<div class="panel-label">PUBLIC REFERENCE DATA — EPA GHGRP FACILITY EMISSIONS</div>
+			{#if publicRefError}
+				<div class="public-ref-body"><div class="evidence-callout pending">Public reference data unavailable: {publicRefError}</div></div>
+			{:else if publicRef}
+				<div class="public-ref-body">
+					<div class="public-ref-stats">
+						<div class="public-ref-stat"><span>REPORTING YEAR</span><b>{publicRef.reporting_year}</b></div>
+						<div class="public-ref-stat"><span>FACILITIES</span><b>{Number(publicRef.record_count || 0).toLocaleString()}</b></div>
+						<div class="public-ref-stat"><span>TOTAL REPORTED DIRECT EMISSIONS</span><b>{(Number(publicRef.total_reported_direct_emissions_mtco2e || 0) / 1e6).toFixed(1)}M t CO2e</b></div>
+						<div class="public-ref-stat"><span>RETRIEVED</span><b>{String(publicRef.retrieved_at_utc || '').slice(0, 10)}</b></div>
+					</div>
+					<div class="public-ref-columns">
+						<div>
+							<div class="side-heading"><span>TOP STATES BY FACILITY COUNT</span></div>
+							<div class="public-ref-list">
+								{#each topStates as [k, v]}
+									<div class="public-ref-row"><span>{k}</span><b>{v}</b></div>
+								{/each}
+							</div>
+						</div>
+						<div>
+							<div class="side-heading"><span>TOP SECTORS BY FACILITY COUNT</span></div>
+							<div class="public-ref-list">
+								{#each topSectors as [k, v]}
+									<div class="public-ref-row"><span>{k}</span><b>{v}</b></div>
+								{/each}
+							</div>
+						</div>
+					</div>
+					<div class="public-ref-note">{publicRef.evidence?.source_name} — {publicRef.evidence?.evidence_class}. {publicRef.evidence?.claim_boundary}</div>
+				</div>
+			{:else}
+				<div class="public-ref-body"><div class="evidence-callout">Loading public reference data…</div></div>
+			{/if}
+		</div>
 	</div>
 </section>

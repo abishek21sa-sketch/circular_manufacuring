@@ -3,8 +3,9 @@ import json
 from pathlib import Path
 from circular_battery.simulation.uncertainty import generate_raw_scenarios, reduce_scenarios
 from circular_battery.ai.runtime import runtime_phase2_payload
+from circular_battery.paths import find_repo_root
 
-ROOT=Path(__file__).resolve().parents[3]
+ROOT=find_repo_root()
 
 def load_phase2_state(path:Path|None=None):
     path=path or ROOT/'artifacts'/'phase2_ai_decision.json'

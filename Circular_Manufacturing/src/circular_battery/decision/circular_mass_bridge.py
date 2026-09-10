@@ -8,8 +8,9 @@ from pathlib import Path
 from typing import Any
 
 from circular_battery.optimization.signature_algorithm import reference_problem, solve_circular_mass
+from circular_battery.paths import find_repo_root
 
-ROOT = Path(__file__).resolve().parents[3]
+ROOT = find_repo_root()
 
 
 def _evidence_artifact() -> dict[str, Any] | None:

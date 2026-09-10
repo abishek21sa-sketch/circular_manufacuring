@@ -15,8 +15,9 @@ from circular_battery.routing.cvrp import solve_cvrp
 from circular_battery.simulation.uncertainty import scenario_summary
 from circular_battery.simulation.policy_experiments import FixedStrategicPolicy, compare_policies
 from circular_battery.evidence.registry import stable_hash
+from circular_battery.paths import find_repo_root
 
-ROOT=Path(__file__).resolve().parents[3]
+ROOT=find_repo_root()
 
 def _load_models():
     # Portable execution path: fit deterministic models in the current sklearn runtime.
