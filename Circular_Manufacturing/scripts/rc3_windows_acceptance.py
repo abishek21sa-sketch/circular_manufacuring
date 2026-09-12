@@ -8,7 +8,8 @@ def run(*args):
 def main():
     py=sys.executable
     run(py,'scripts/build_frontend.py')
-    run(py,'-m','pytest','tests/test_signature_algorithm.py','tests/test_circular_mass_product.py','tests/test_circular_mass_ui_contract.py','tests/test_v1_api.py','tests/test_phase8_advanced_or.py','-q')
+    test_files=sorted(str(p.relative_to(ROOT)).replace('\\','/') for p in (ROOT/'tests').glob('test_*.py'))
+    run(py,'-m','pytest',*test_files,'-q')
     run(py,'scripts/circular_mass_evidence.py')
     run(py,'scripts/circular_mass_product_evidence.py')
     run(py,'scripts/gurobi_circular_mass_check.py')

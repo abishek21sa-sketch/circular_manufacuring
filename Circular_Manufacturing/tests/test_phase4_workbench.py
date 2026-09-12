@@ -37,9 +37,19 @@ def test_live_http_contract():
         with urllib.request.urlopen(f"http://127.0.0.1:{port}/api/health",timeout=5) as r:
             assert r.status == 200
             assert json.loads(r.read())["status"] == "ok"
-        with urllib.request.urlopen(f"http://127.0.0.1:{port}/",timeout=5) as r:
-            html=r.read().decode()
-            assert "Material Circularity Studio" in html
+        if not DIST.is_dir():
+            # No legacy web/dist bundle on this machine/CI -- the deployed
+            # architecture is API-only (the UI is the separate Vercel frontend),
+            # so "/" should 404 cleanly rather than serve or crash.
+            try:
+                urllib.request.urlopen(f"http://127.0.0.1:{port}/",timeout=5)
+                assert False, "expected HTTPError 404"
+            except urllib.error.HTTPError as e:
+                assert e.code == 404
+        else:
+            with urllib.request.urlopen(f"http://127.0.0.1:{port}/",timeout=5) as r:
+                html=r.read().decode()
+                assert "Material Circularity Studio" in html
         body=json.dumps({"scenario":{"collection_rate":.88},"carbon_price_per_kg":.2}).encode()
         req=urllib.request.Request(f"http://127.0.0.1:{port}/api/optimize",data=body,headers={"Content-Type":"application/json"},method="POST")
         with urllib.request.urlopen(req,timeout=10) as r:

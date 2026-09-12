@@ -33,12 +33,13 @@ REQUEST_ID_PATTERN=re.compile(r"^[A-Za-z0-9._-]{1,64}$")
 
 
 def _allowed_cors_origins():
-    """Origins allowed to call the API cross-origin (the deployed Vercel frontend).
+    """Origins allowed to call the API cross-origin -- the deployed Vercel frontend.
 
-    Empty by default: the legacy Studio is served same-origin from DIST, so no
-    browser ever needs a CORS grant unless CIRCULAR_CORS_ORIGINS is set for the
-    split frontend/frontend (Vercel) + backend (Render) deployment. See
-    README.md "Deployment".
+    Empty by default (no origins allowed). Set CIRCULAR_CORS_ORIGINS for the
+    split frontend (Vercel) + backend (Render) deployment. See README.md
+    "Deployment". DIST, below, is a legacy fallback: if a web/dist bundle
+    happens to be present the server will still serve it same-origin, but
+    nothing about the deployed architecture requires it to exist.
     """
     raw=os.getenv("CIRCULAR_CORS_ORIGINS","").strip()
     return [o.strip() for o in raw.split(",") if o.strip()]
@@ -182,6 +183,8 @@ class Handler(BaseHTTPRequestHandler):
             if path=="/api/production-plan": return self._json(production_plan_payload(),request_id=request_id)
             if path=="/api/phase10": return self._json(phase10_payload(),request_id=request_id)
 
+            if not DIST.is_dir():
+                return self._error("NOT_FOUND","Endpoint not found. This deployment serves the API only -- the UI is the separately-deployed frontend.",404,request_id)
             target=DIST/("index.html" if path=="/" else path.lstrip("/"))
             target=target.resolve()
             dist=DIST.resolve()
@@ -281,7 +284,7 @@ class Handler(BaseHTTPRequestHandler):
 def run(host="127.0.0.1",port=8765):
     validate_server_configuration(host)
     if not (DIST/"index.html").exists():
-        raise RuntimeError("Frontend is not built. Run scripts/build_frontend.py first.")
+        print("[studio] No web/dist bundle found -- serving the API only. The UI is the separately-deployed Vercel frontend; see README.md \"Deployment\".",flush=True)
     runtime_health=get_enterprise_service().store.health()
     if (
         os.getenv("CIRCULAR_DEPLOYMENT_MODE", "local").strip().lower()=="production"
